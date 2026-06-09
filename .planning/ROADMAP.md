@@ -85,10 +85,13 @@ Plans:
   4. A equipe consegue explicar a relacao entre mitigacao, OWASP e Secure SDLC.
 
 **Plans:** 2 plans
-
 Plans:
+**Wave 1**
 
 - [ ] 03-01: Adicionar modo corrigido, configuracao de cookies e expiracao de sessao.
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
 - [ ] 03-02: Corrigir logout, limpar sessao no servidor e documentar antes/depois do codigo.
 
 ### Phase 4: Mitigation Verification
