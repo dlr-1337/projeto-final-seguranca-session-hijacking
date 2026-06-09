@@ -20,7 +20,7 @@ Requirements for the initial project delivery. Each requirement maps to one road
 ### Attack Demonstration
 
 - [x] **ATK-01**: A equipe possui um roteiro reproduzivel para capturar ou copiar, de forma controlada, o cookie de sessao no ambiente local.
-- [ ] **ATK-02**: A equipe pode demonstrar acesso ao dashboard protegido sem senha usando apenas o cookie reutilizado.
+- [x] **ATK-02**: A equipe pode demonstrar acesso ao dashboard protegido sem senha usando apenas o cookie reutilizado.
 
 ### Mitigation
 
@@ -67,7 +67,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | VULN-01 | Phase 1 | Complete |
 | VULN-02 | Phase 2 | Complete |
 | ATK-01 | Phase 2 | Complete |
-| ATK-02 | Phase 2 | Pending |
+| ATK-02 | Phase 2 | Complete |
 | FIX-01 | Phase 3 | Pending |
 | FIX-02 | Phase 3 | Pending |
 | FIX-03 | Phase 4 | Pending |

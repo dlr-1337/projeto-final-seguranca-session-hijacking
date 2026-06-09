@@ -14,7 +14,7 @@ O projeto sera construido como um MVP vertical para que cada fase aumente a demo
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Vulnerable Lab Foundation** - Aplicacao local com login, dashboard protegido e modo vulneravel. (completed 2026-06-09)
-- [ ] **Phase 2: Session Reuse Attack** - Roteiro e prova pratica de reutilizacao do cookie de sessao.
+- [x] **Phase 2: Session Reuse Attack** - Roteiro e prova pratica de reutilizacao do cookie de sessao. (completed 2026-06-09)
 - [ ] **Phase 3: Session Security Fixes** - Cookies e ciclo de vida de sessao corrigidos.
 - [ ] **Phase 4: Mitigation Verification** - Mesma tentativa de ataque falhando apos a correcao.
 - [ ] **Phase 5: Presentation Package** - Slides, referencias e roteiro de 25 minutos prontos.
@@ -57,7 +57,7 @@ Plans:
   3. O roteiro explica claramente qual principio de seguranca foi violado.
   4. A demonstracao pode ser repetida sem depender de dados reais ou alvos externos.
 
-**Plans:** 1/2 plans executed
+**Plans:** 2/2 plans complete
 Plans:
 **Wave 1**
 
@@ -65,7 +65,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 02-02: Registrar evidencias da exploracao para slides e ensaio da demonstracao.
+- [x] 02-02: Registrar evidencias da exploracao para slides e ensaio da demonstracao.
 
 **Cross-cutting constraints:**
 
@@ -139,7 +139,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Vulnerable Lab Foundation | 2/2 | Complete   | 2026-06-09 |
-| 2. Session Reuse Attack | 1/2 | In Progress|  |
+| 2. Session Reuse Attack | 2/2 | Complete   | 2026-06-09 |
 | 3. Session Security Fixes | 0/2 | Not started | - |
 | 4. Mitigation Verification | 0/2 | Not started | - |
 | 5. Presentation Package | 0/2 | Not started | - |
