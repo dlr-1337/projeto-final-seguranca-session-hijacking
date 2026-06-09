@@ -14,12 +14,11 @@ A demonstracao deve provar, de forma reproduzivel e local, que uma sessao insegu
 
 ### Validated
 
-(None yet - ship to validate)
+- [x] Phase 1 validated a local Express application with fake login, session-backed authentication, and a protected dashboard.
+- [x] Phase 1 validated the vulnerable mode foundation: `sid` is intentionally configured with insecure cookie attributes for the local classroom demo.
 
 ### Active
 
-- [ ] Criar uma aplicacao local funcional com login, sessao e area autenticada.
-- [ ] Implementar uma versao vulneravel com cookies inseguros e sessao sem expiracao adequada.
 - [ ] Demonstrar Session Hijacking por captura ou copia controlada do cookie de sessao e reutilizacao em outro navegador, ferramenta ou perfil.
 - [ ] Implementar mitigacoes obrigatorias: cookies seguros, flags HttpOnly e SameSite, expiracao adequada e invalidacao de sessao no logout.
 - [ ] Demonstrar que o ataque falha depois da correcao.
@@ -82,6 +81,7 @@ Entregaveis obrigatorios:
 | Separar modo vulneravel e modo corrigido | Facilita demonstrar o ataque antes e depois da mitigacao | Pending |
 | Usar dados ficticios de usuarios | Mantem a demonstracao etica e segura | Pending |
 | Focar em reutilizacao de cookie de sessao | E o nucleo pratico do tema Session Hijacking | Pending |
+| Usar Express, EJS e express-session no MVP | Mantem o laboratorio pequeno, testavel e facil de explicar em 25 minutos | Validated in Phase 1 |
 
 ## Evolution
 
@@ -101,4 +101,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-09 after initialization*
+*Last updated: 2026-06-09 after Phase 1 completion*
