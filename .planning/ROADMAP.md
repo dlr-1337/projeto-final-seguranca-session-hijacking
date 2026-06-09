@@ -130,11 +130,11 @@ Plans:
   3. Codigo vulneravel e codigo corrigido aparecem em trechos comparaveis.
   4. As referencias incluem OWASP, MDN e documentacao da tecnologia usada.
 
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 Plans:
 **Wave 1**
 
-- [ ] 05-01: Criar outline, conteudo dos slides e referencias.
+- [x] 05-01: Criar outline, conteudo dos slides e referencias.
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -151,4 +151,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Session Reuse Attack | 2/2 | Complete    | 2026-06-09 |
 | 3. Session Security Fixes | 2/2 | Complete    | 2026-06-09 |
 | 4. Mitigation Verification | 2/2 | Complete    | 2026-06-09 |
-| 5. Presentation Package | 0/2 | Not started | - |
+| 5. Presentation Package | 1/2 | In Progress|  |
