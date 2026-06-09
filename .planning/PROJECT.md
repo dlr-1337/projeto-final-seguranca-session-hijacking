@@ -21,10 +21,10 @@ A demonstracao deve provar, de forma reproduzivel e local, que uma sessao insegu
 - [x] Phase 2 validated protected dashboard access without a password using only the reused session cookie.
 - [x] Phase 3 validated the corrected session mode with `HttpOnly`, `Secure`, `SameSite`, short expiration, and documented local HTTP fallback.
 - [x] Phase 3 validated logout invalidation: `POST /logout` destroys server-side session state and clears the active cookie.
+- [x] Phase 4 validated that the before/after mitigation proof works: vulnerable `sid` replay succeeds, while invalid, obsolete, or logged-out cookies in fixed mode redirect to `/login`.
 
 ### Active
 
-- [ ] Demonstrar que o ataque falha depois da correcao.
 - [ ] Preparar slides em PDF com tema, integrantes, descricao da vulnerabilidade, arquitetura, codigo vulneravel, impactos, correcao, codigo corrigido, conclusao e referencias.
 - [ ] Preparar roteiro de demonstracao com as etapas: mostrar vulnerabilidade, explorar falha, corrigir problema e demonstrar mitigacao funcionando.
 
@@ -86,6 +86,7 @@ Entregaveis obrigatorios:
 | Focar em reutilizacao de cookie de sessao | E o nucleo pratico do tema Session Hijacking | Validated in Phase 2 |
 | Usar Express, EJS e express-session no MVP | Mantem o laboratorio pequeno, testavel e facil de explicar em 25 minutos | Validated in Phase 1 |
 | Usar DevTools como caminho principal e cURL como backup | Mantem a demonstracao visual para a apresentacao e reproduzivel por comando | Validated in Phase 2 |
+| Enquadrar cookies ativos como bearer tokens | Evita prometer que flags de cookie impedem replay manual de uma sessao ainda valida | Validated in Phase 4 |
 
 ## Evolution
 
@@ -105,4 +106,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-09 after Phase 3 completion*
+*Last updated: 2026-06-09 after Phase 4 completion*

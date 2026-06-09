@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Vulnerable Lab Foundation** - Aplicacao local com login, dashboard protegido e modo vulneravel. (completed 2026-06-09)
 - [x] **Phase 2: Session Reuse Attack** - Roteiro e prova pratica de reutilizacao do cookie de sessao. (completed 2026-06-09)
 - [x] **Phase 3: Session Security Fixes** - Cookies e ciclo de vida de sessao corrigidos. (completed 2026-06-09)
-- [ ] **Phase 4: Mitigation Verification** - Mesma tentativa de ataque falhando apos a correcao.
+- [x] **Phase 4: Mitigation Verification** - Mesma tentativa de ataque falhando apos a correcao. (completed 2026-06-09)
 - [ ] **Phase 5: Presentation Package** - Slides, referencias e roteiro de 25 minutos prontos.
 
 ## Phase Details
@@ -107,12 +107,15 @@ Plans:
   3. O ambiente pode ser resetado rapidamente para ensaio e apresentacao.
   4. As limitacoes de HTTPS em localhost ficam documentadas para evitar confusao na banca.
 
-**Plans:** 2 plans
-
+**Plans:** 2/2 plans complete
 Plans:
+**Wave 1**
 
-- [ ] 04-01: Criar checklist de verificacao da mitigacao e comandos de reset do laboratorio.
-- [ ] 04-02: Ensaiar fluxo completo e ajustar mensagens/erros para ficarem didaticos.
+- [x] 04-01: Criar checklist de verificacao da mitigacao e comandos de reset do laboratorio.
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [x] 04-02: Ensaiar fluxo completo e ajustar mensagens/erros para ficarem didaticos.
 
 ### Phase 5: Presentation Package
 
@@ -144,5 +147,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Vulnerable Lab Foundation | 2/2 | Complete   | 2026-06-09 |
 | 2. Session Reuse Attack | 2/2 | Complete    | 2026-06-09 |
 | 3. Session Security Fixes | 2/2 | Complete    | 2026-06-09 |
-| 4. Mitigation Verification | 0/2 | Not started | - |
+| 4. Mitigation Verification | 2/2 | Complete    | 2026-06-09 |
 | 5. Presentation Package | 0/2 | Not started | - |
