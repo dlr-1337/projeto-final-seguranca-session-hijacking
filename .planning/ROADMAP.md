@@ -58,11 +58,18 @@ Plans:
   4. A demonstracao pode ser repetida sem depender de dados reais ou alvos externos.
 
 **Plans:** 2 plans
-
 Plans:
+**Wave 1**
 
 - [ ] 02-01: Criar roteiro de ataque com navegador, DevTools e alternativa via Postman ou cURL.
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
 - [ ] 02-02: Registrar evidencias da exploracao para slides e ensaio da demonstracao.
+
+**Cross-cutting constraints:**
+
+- D-15: No fixed-mode session behavior is implemented in this plan.
 
 ### Phase 3: Session Security Fixes
 
