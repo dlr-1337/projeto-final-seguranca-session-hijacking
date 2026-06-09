@@ -126,6 +126,20 @@ O roteiro de verificacao esta em [`docs/mitigation-verification.md`](docs/mitiga
 
 Ele repete a sequencia antes/depois: o replay do `sid` vulneravel acessa `/dashboard`, enquanto o modo corrigido nega cookies invalidos, antigos ou apos logout com `302 Location: /login`. Rode `npm test` para ver a prova automatizada dessa mitigacao.
 
+## Phase 5: Pacote de Apresentacao
+
+O pacote final da apresentacao esta em [`docs/presentation/README.md`](docs/presentation/README.md).
+
+Arquivos principais:
+
+- Slides editaveis: [`docs/presentation/slides.html`](docs/presentation/slides.html).
+- PDF final: [`docs/presentation/session-hijacking-presentation.pdf`](docs/presentation/session-hijacking-presentation.pdf).
+- Roteiro de fala: [`docs/presentation/speaker-script.md`](docs/presentation/speaker-script.md).
+- Checklist de evidencias: [`docs/presentation/evidence-checklist.md`](docs/presentation/evidence-checklist.md).
+- Referencias: [`docs/presentation/references.md`](docs/presentation/references.md).
+
+Antes de apresentar, ensaie `npm run dev`, `npm run dev:fixed` e `npm test`.
+
 ## Comandos de Teste
 
 ```bash

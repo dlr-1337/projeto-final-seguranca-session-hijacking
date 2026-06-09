@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Session Reuse Attack** - Roteiro e prova pratica de reutilizacao do cookie de sessao. (completed 2026-06-09)
 - [x] **Phase 3: Session Security Fixes** - Cookies e ciclo de vida de sessao corrigidos. (completed 2026-06-09)
 - [x] **Phase 4: Mitigation Verification** - Mesma tentativa de ataque falhando apos a correcao. (completed 2026-06-09)
-- [ ] **Phase 5: Presentation Package** - Slides, referencias e roteiro de 25 minutos prontos.
+- [x] **Phase 5: Presentation Package** - Slides, referencias e roteiro de 25 minutos prontos. (completed 2026-06-09)
 
 ## Phase Details
 
@@ -130,12 +130,15 @@ Plans:
   3. Codigo vulneravel e codigo corrigido aparecem em trechos comparaveis.
   4. As referencias incluem OWASP, MDN e documentacao da tecnologia usada.
 
-**Plans:** 2 plans
-
+**Plans:** 2/2 plans complete
 Plans:
+**Wave 1**
 
-- [ ] 05-01: Criar outline, conteudo dos slides e referencias.
-- [ ] 05-02: Exportar PDF, revisar narrativa e preparar falas dos dois integrantes.
+- [x] 05-01: Criar outline, conteudo dos slides e referencias.
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [x] 05-02: Exportar PDF, revisar narrativa e preparar falas dos dois integrantes.
 
 ## Progress
 
@@ -148,4 +151,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Session Reuse Attack | 2/2 | Complete    | 2026-06-09 |
 | 3. Session Security Fixes | 2/2 | Complete    | 2026-06-09 |
 | 4. Mitigation Verification | 2/2 | Complete    | 2026-06-09 |
-| 5. Presentation Package | 0/2 | Not started | - |
+| 5. Presentation Package | 2/2 | Complete    | 2026-06-09 |

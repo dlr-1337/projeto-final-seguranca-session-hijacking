@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Session Hijacking - Projeto Final</title>
+    <style>
+      @page {
+        size: 13.333in 7.5in;
+        margin: 0;
+      }
+
+      :root {
+        --ink: #111827;
+        --muted: #4b5563;
+        --paper: #fbfaf7;
+        --panel: #ffffff;
+        --line: #d1d5db;
+        --accent: #0f766e;
+        --warn: #b91c1c;
+        --code: #111827;
+        --code-bg: #f3f4f6;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #e5e7eb;
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .deck {
+        width: 100%;
+      }
+
+      .slide {
+        width: 13.333in;
+        height: 7.5in;
+        page-break-after: always;
+        break-after: page;
+        background: var(--paper);
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 0.62in 0.72in;
+        position: relative;
+      }
+
+      .slide::after {
+        content: attr(data-section);
+        position: absolute;
+        right: 0.72in;
+        bottom: 0.28in;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      header {
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 14px;
+      }
+
+      .eyebrow {
+        color: var(--accent);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0;
+        margin: 0 0 8px;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2 {
+        letter-spacing: 0;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 48px;
+        line-height: 1.05;
+        max-width: 10.5in;
+      }
+
+      h2 {
+        font-size: 34px;
+        line-height: 1.12;
+      }
+
+      h3 {
+        font-size: 20px;
+        margin: 0 0 10px;
+      }
+
+      p,
+      li {
+        color: var(--ink);
+        font-size: 22px;
+        line-height: 1.35;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      ul,
+      ol {
+        margin: 0;
+        padding-left: 28px;
+      }
+
+      li + li {
+        margin-top: 10px;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 28px;
+        line-height: 1.3;
+        max-width: 10.8in;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 18px;
+      }
+
+      .panel p,
+      .panel li {
+        font-size: 18px;
+      }
+
+      .kicker {
+        color: var(--muted);
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .badge {
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        border-radius: 999px;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 7px 12px;
+      }
+
+      code {
+        background: var(--code-bg);
+        border-radius: 4px;
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 0.88em;
+        padding: 1px 4px;
+      }
+
+      pre {
+        background: var(--code);
+        border-radius: 8px;
+        color: #f9fafb;
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 15px;
+        line-height: 1.28;
+        margin: 0;
+        overflow: hidden;
+        padding: 16px;
+        white-space: pre-wrap;
+      }
+
+      .code-title {
+        color: var(--muted);
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .warning {
+        border-left: 5px solid var(--warn);
+      }
+
+      .timing {
+        align-items: stretch;
+      }
+
+      .timebox strong {
+        color: var(--accent);
+        display: block;
+        font-size: 32px;
+        margin-bottom: 8px;
+      }
+
+      .timebox span {
+        color: var(--muted);
+        display: block;
+        font-size: 17px;
+        line-height: 1.3;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr auto 1fr;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .arrow {
+        color: var(--accent);
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .note {
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .refs li {
+        font-size: 18px;
+        overflow-wrap: anywhere;
+      }
+
+      @media print {
+        body {
+          background: #ffffff;
+        }
+
+        .slide {
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="deck">
+      <section class="slide" data-section="1 / 12">
+        <header>
+          <p class="eyebrow">Projeto Final - Seguranca da Informacao</p>
+          <h1>Session Hijacking</h1>
+        </header>
+        <p class="lead">Demonstracao local de sequestro de sessao por reutilizacao de cookie e mitigacao com atributos seguros, expiracao e invalidacao no servidor.</p>
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Tema</h3>
+            <p>05 - Session Hijacking</p>
+          </div>
+          <div class="panel">
+            <h3>Integrantes</h3>
+            <p>Integrante 1<br>Integrante 2</p>
+          </div>
+        </div>
+        <div class="badge-row">
+          <span class="badge">Local</span>
+          <span class="badge">Dados ficticios</span>
+          <span class="badge">Express + express-session</span>
+          <span class="badge">Antes e depois</span>
+        </div>
+      </section>
+
+      <section class="slide" data-section="2 / 12">
+        <header>
+          <p class="eyebrow">7 min - conceito</p>
+          <h2>Objetivo e escopo etico</h2>
+        </header>
+        <div class="grid-2">
+          <div>
+            <ul>
+              <li>Provar que uma sessao vulneravel pode ser reutilizada em outro cliente local.</li>
+              <li>Mostrar que a correcao reduz exposicao e bloqueia cookies invalidos, antigos, expirados ou apos logout.</li>
+              <li>Comparar codigo vulneravel e codigo corrigido de forma didatica.</li>
+            </ul>
+          </div>
+          <div class="panel warning">
+            <h3>Limite da demonstracao</h3>
+            <p>Somente `127.0.0.1`/localhost, usuarios fake (`alice`, `bruno`) e dados ficticios. Nada de contas reais, alvos externos, sniffing, XSS, CSRF ou tunel publico.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-section="3 / 12">
+        <header>
+          <p class="eyebrow">7 min - conceito</p>
+          <h2>Arquitetura do laboratorio</h2>
+        </header>
+        <div class="flow">
+          <div class="panel">
+            <h3>Navegador</h3>
+            <p>Login local e cookie de sessao enviado a cada request.</p>
+          </div>
+          <div class="arrow">></div>
+          <div class="panel">
+            <h3>Express</h3>
+            <p>`/login`, `/dashboard`, `POST /logout` e `requireAuth`.</p>
+          </div>
+          <div class="arrow">></div>
+          <div class="panel">
+            <h3>express-session</h3>
+            <p>Cookie guarda o ID; dados de sessao ficam no servidor.</p>
+          </div>
+        </div>
+        <div class="grid-3">
+          <div class="panel">
+            <p class="kicker">Modo vulneravel</p>
+            <p>`sid` inseguro para provar o ataque.</p>
+          </div>
+          <div class="panel">
+            <p class="kicker">Modo corrigido</p>
+            <p>`__Host-session`, `HttpOnly`, `Secure`, `SameSite`, `maxAge`.</p>
+          </div>
+          <div class="panel">
+            <p class="kicker">Prova</p>
+            <p>`npm test` e demo manual com DevTools/cURL.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-section="4 / 12">
+        <header>
+          <p class="eyebrow">7 min - conceito</p>
+          <h2>Como acontece o Session Hijacking</h2>
+        </header>
+        <div class="grid-2">
+          <div>
+            <ol>
+              <li>Usuario legitimo autentica e recebe cookie de sessao.</li>
+              <li>Outro cliente obtem o mesmo identificador de sessao.</li>
+              <li>Servidor aceita o cookie e associa o segundo cliente a sessao existente.</li>
+            </ol>
+          </div>
+          <div class="panel">
+            <h3>Ideia central</h3>
+            <p>Um cookie bearer, ou identificador de sessao ativo, funciona como credencial. Quem apresenta o cookie valido recebe a sessao enquanto ela existir.</p>
+          </div>
+        </div>
+        <p class="note">O objetivo da mitigacao e reduzir exposicao, limitar a janela de uso e invalidar a sessao no servidor quando necessario.</p>
+      </section>
+
+      <section class="slide" data-section="5 / 12">
+        <header>
+          <p class="eyebrow">8 min - ataque</p>
+          <h2>Codigo vulneravel: cookie `sid` reutilizavel</h2>
+        </header>
+        <div class="grid-2">
+          <div>
+            <p class="code-title">src/session/vulnerable-session.js</p>
+            <pre>session({
+  name: "sid",
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: false,
+    secure: false,
+    sameSite: false,
+    maxAge: 24 * 60 * 60 * 1000
+  }
+});</pre>
+          </div>
+          <div class="panel">
+            <h3>Por que e vulneravel?</h3>
+            <p>Vulnerabilidade demonstrada: reutilizacao de cookie de sessao sem nova autenticacao.</p>
+            <ul>
+              <li>`httpOnly: false` aumenta exposicao no cliente.</li>
+              <li>`secure: false` permite envio sem HTTPS.</li>
+              <li>`sameSite: false` remove restricao cross-site.</li>
+              <li>`maxAge` longo amplia a janela de reuso.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-section="6 / 12">
+        <header>
+          <p class="eyebrow">8 min - ataque</p>
+          <h2>Demonstracao do ataque local</h2>
+        </header>
+        <div class="grid-2">
+          <div>
+            <ol>
+              <li>`npm run dev`.</li>
+              <li>Cliente A: login como `alice`.</li>
+              <li>Cliente B: `/dashboard` redireciona para `/login`.</li>
+              <li>Copiar `sid` do Cliente A e inserir no Cliente B.</li>
+              <li>Cliente B acessa `/dashboard` sem senha.</li>
+            </ol>
+          </div>
+          <div>
+            <p class="code-title">Fallback com cURL</p>
+            <pre>curl.exe -i http://127.0.0.1:3000/dashboard ^
+  -H "Cookie: sid=&lt;copied-sid-value&gt;"</pre>
+            <p class="note">Nos slides ou screenshots, redact o valor real do cookie.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-section="7 / 12">
+        <header>
+          <p class="eyebrow">8 min - ataque</p>
+          <h2>Impacto e principio violado</h2>
+        </header>
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Impacto observado</h3>
+            <ul>
+              <li>Segundo cliente acessa dados privados ficticios da Alice.</li>
+              <li>Nenhuma senha e enviada no replay.</li>
+              <li>O cookie passa a representar a identidade da sessao.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Principio violado</h3>
+            <p>Controle insuficiente sobre identificador de sessao: o servidor confia no cookie apresentado e nao distingue o cliente legitimo do replay.</p>
+          </div>
+        </div>
+        <p class="note">Evidencia automatizada: `tests/session-reuse-attack.test.js` prova que uma requisicao separada reutiliza `sid` e recebe dados fake da Alice.</p>
+      </section>
+
+      <section class="slide" data-section="8 / 12">
+        <header>
+          <p class="eyebrow">8 min - correcao</p>
+          <h2>Codigo corrigido: atributos seguros</h2>
+        </header>
+        <div class="grid-2">
+          <div>
+            <p class="code-title">src/session/fixed-session.js</p>
+            <pre>session({
+  name: "__Host-session",
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    secure: true,
+    sameSite: "strict",
+    maxAge: 5 * 60 * 1000,
+    path: "/"
+  }
+});</pre>
+          </div>
+          <div class="panel">
+            <h3>O que muda?</h3>
+            <ul>
+              <li>`HttpOnly`: reduz exposicao a JavaScript.</li>
+              <li>`Secure`: envio apenas via HTTPS no caminho seguro.</li>
+              <li>`SameSite=Strict`: restringe envio cross-site.</li>
+              <li>`maxAge` curto: diminui janela de abuso.</li>
+              <li>`__Host-session`: cookie mais restrito, com `Path=/` e sem `Domain`.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-section="9 / 12">
+        <header>
+          <p class="eyebrow">8 min - correcao</p>
+          <h2>Lifecycle: login, expiracao e logout</h2>
+        </header>
+        <div class="grid-3">
+          <div class="panel">
+            <h3>Login</h3>
+            <p>No modo corrigido, a sessao e regenerada antes de gravar `userId`.</p>
+          </div>
+          <div class="panel">
+            <h3>Expiracao</h3>
+            <p>`maxAge` de 5 minutos limita o tempo util do cookie copiado.</p>
+          </div>
+          <div class="panel">
+            <h3>Logout</h3>
+            <p>`POST /logout` executa `req.session.destroy`, limpa o cookie e redireciona para `/login`.</p>
+          </div>
+        </div>
+        <p class="note">O HTTP local com `npm run dev:fixed` e fallback de inspecao. Protecao real do atributo `Secure` exige HTTPS; os testes validam o caminho seguro com headers de proxy HTTPS.</p>
+      </section>
+
+      <section class="slide" data-section="10 / 12">
+        <header>
+          <p class="eyebrow">8 min - correcao</p>
+          <h2>Verificacao: antes funciona, depois falha</h2>
+        </header>
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Antes</h3>
+            <p>Replay do `sid` vulneravel chega ao `/dashboard` e mostra `Alice Demo` / `LAB-ALICE-001`.</p>
+          </div>
+          <div class="panel">
+            <h3>Depois</h3>
+            <p>Cookie antigo, invalido, expirado ou apos logout retorna `302 Location: /login`.</p>
+          </div>
+        </div>
+        <pre>npm test
+
+mitigation verification:
+- vulnerable sid replay reaches dashboard
+- obsolete vulnerable sid is rejected in fixed mode
+- copied fixed cookie fails after logout</pre>
+      </section>
+
+      <section class="slide" data-section="11 / 12">
+        <header>
+          <p class="eyebrow">2 min - fechamento</p>
+          <h2>OWASP e Secure SDLC</h2>
+        </header>
+        <div class="grid-2">
+          <div>
+            <ul>
+              <li>OWASP Top 10 2025: A07 Authentication Failures.</li>
+              <li>OWASP 2021: A07 Identification and Authentication Failures.</li>
+              <li>OWASP Session Management: proteger o ID de sessao, expirar e invalidar.</li>
+              <li>Secure SDLC: identificar, explorar de forma controlada, corrigir e verificar.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Mensagem honesta</h3>
+            <p>As mitigacoes reduzem a chance e a janela de sequestro. Um cookie ativo ainda e sensivel ate expirar ou ser invalidado no servidor.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-section="12 / 12">
+        <header>
+          <p class="eyebrow">2 min - fechamento</p>
+          <h2>Conclusao e referencias</h2>
+        </header>
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Conclusao</h3>
+            <p>O lab demonstrou, localmente, que um cookie de sessao inseguro pode ser reutilizado. Depois das correcoes, sessoes invalidas ou encerradas nao abrem mais o dashboard protegido.</p>
+          </div>
+          <div class="panel refs">
+            <h3>Referencias</h3>
+            <ul>
+              <li>OWASP Top 10 A07 Authentication Failures.</li>
+              <li>OWASP Session Management Cheat Sheet.</li>
+              <li>MDN Set-Cookie.</li>
+              <li>Express `express-session`.</li>
+              <li>Codigo e testes deste laboratorio.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
