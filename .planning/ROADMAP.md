@@ -131,10 +131,13 @@ Plans:
   4. As referencias incluem OWASP, MDN e documentacao da tecnologia usada.
 
 **Plans:** 2 plans
-
 Plans:
+**Wave 1**
 
 - [ ] 05-01: Criar outline, conteudo dos slides e referencias.
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
 - [ ] 05-02: Exportar PDF, revisar narrativa e preparar falas dos dois integrantes.
 
 ## Progress
