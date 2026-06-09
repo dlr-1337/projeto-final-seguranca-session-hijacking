@@ -82,6 +82,8 @@ Ele mostra como copiar o cookie vulneravel `sid` com DevTools e reutiliza-lo em 
 
 A configuracao corrigida esta em `src/session/fixed-session.js`. A selecao entre modos fica em `src/session/session-mode.js`.
 
+O roteiro da correcao esta em [`docs/session-security-fixes.md`](docs/session-security-fixes.md).
+
 Para o modo vulneravel padrao:
 
 ```bash
@@ -115,6 +117,8 @@ Cookie corrigido no caminho seguro:
 | `Domain` | nao definido |
 
 Quando `SESSION_COOKIE_SECURE=false` for usado para HTTP local, o app usa o cookie `sid` sem o prefixo `__Host-`. Esse fallback serve apenas para inspecao local em navegador comum; nao deve ser descrito como configuracao segura completa. A prova de que a reutilizacao do cookie falha depois das mitigacoes pertence a Phase 4.
+
+O logout do modo corrigido usa `POST /logout`, destroi a sessao no servidor e limpa o cookie do cliente.
 
 ## Comandos de Teste
 
