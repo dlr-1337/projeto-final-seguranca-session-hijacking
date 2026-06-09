@@ -25,7 +25,7 @@ Requirements for the initial project delivery. Each requirement maps to one road
 ### Mitigation
 
 - [x] **FIX-01**: A aplicacao possui modo corrigido com cookie de sessao configurado com `HttpOnly`, `Secure`, `SameSite` e expiracao adequada.
-- [ ] **FIX-02**: O logout invalida a sessao no servidor e remove o cookie do cliente.
+- [x] **FIX-02**: O logout invalida a sessao no servidor e remove o cookie do cliente.
 - [ ] **FIX-03**: A tentativa de reutilizar o cookie apos a mitigacao falha de forma observavel, como redirecionamento para login ou resposta `401`.
 
 ### Documentation
@@ -69,7 +69,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ATK-01 | Phase 2 | Complete |
 | ATK-02 | Phase 2 | Complete |
 | FIX-01 | Phase 3 | Complete |
-| FIX-02 | Phase 3 | Pending |
+| FIX-02 | Phase 3 | Complete |
 | FIX-03 | Phase 4 | Pending |
 | DOC-01 | Phase 5 | Pending |
 | DOC-02 | Phase 5 | Pending |
