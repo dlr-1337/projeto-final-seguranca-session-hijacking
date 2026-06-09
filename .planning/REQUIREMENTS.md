@@ -73,6 +73,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FIX-03 | Phase 4 | Pending |
 | DOC-01 | Phase 5 | Pending |
 | DOC-02 | Phase 5 | Pending |
+| ENH-01 | v2 | Deferred |
+| ENH-02 | v2 | Deferred |
+| ENH-03 | v2 | Deferred |
+| ENH-04 | v2 | Deferred |
 
 **Coverage:**
 
