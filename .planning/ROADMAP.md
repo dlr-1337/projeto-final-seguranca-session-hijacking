@@ -84,11 +84,11 @@ Plans:
   3. O codigo deixa clara a diferenca entre modo vulneravel e modo corrigido.
   4. A equipe consegue explicar a relacao entre mitigacao, OWASP e Secure SDLC.
 
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 Plans:
 **Wave 1**
 
-- [ ] 03-01: Adicionar modo corrigido, configuracao de cookies e expiracao de sessao.
+- [x] 03-01: Adicionar modo corrigido, configuracao de cookies e expiracao de sessao.
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -143,6 +143,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|----------------|--------|-----------|
 | 1. Vulnerable Lab Foundation | 2/2 | Complete   | 2026-06-09 |
 | 2. Session Reuse Attack | 2/2 | Complete    | 2026-06-09 |
-| 3. Session Security Fixes | 0/2 | Not started | - |
+| 3. Session Security Fixes | 1/2 | In Progress|  |
 | 4. Mitigation Verification | 0/2 | Not started | - |
 | 5. Presentation Package | 0/2 | Not started | - |
