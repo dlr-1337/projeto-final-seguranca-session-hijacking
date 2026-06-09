@@ -22,11 +22,12 @@ A demonstracao deve provar, de forma reproduzivel e local, que uma sessao insegu
 - [x] Phase 3 validated the corrected session mode with `HttpOnly`, `Secure`, `SameSite`, short expiration, and documented local HTTP fallback.
 - [x] Phase 3 validated logout invalidation: `POST /logout` destroys server-side session state and clears the active cookie.
 - [x] Phase 4 validated that the before/after mitigation proof works: vulnerable `sid` replay succeeds, while invalid, obsolete, or logged-out cookies in fixed mode redirect to `/login`.
+- [x] Phase 5 validated the final PDF slide deck with tema, integrantes, vulnerabilidade, arquitetura, codigo vulneravel, impactos, correcao, codigo corrigido, conclusao e referencias.
+- [x] Phase 5 validated the 25-minute roteiro with 7/8/8/2 timing, two-presenter split, reset steps, cURL fallback and `npm test` proof.
 
 ### Active
 
-- [ ] Preparar slides em PDF com tema, integrantes, descricao da vulnerabilidade, arquitetura, codigo vulneravel, impactos, correcao, codigo corrigido, conclusao e referencias.
-- [ ] Preparar roteiro de demonstracao com as etapas: mostrar vulnerabilidade, explorar falha, corrigir problema e demonstrar mitigacao funcionando.
+- None. v1 delivery is complete; remaining ideas are tracked under v2 requirements.
 
 ### Out of Scope
 
@@ -87,6 +88,7 @@ Entregaveis obrigatorios:
 | Usar Express, EJS e express-session no MVP | Mantem o laboratorio pequeno, testavel e facil de explicar em 25 minutos | Validated in Phase 1 |
 | Usar DevTools como caminho principal e cURL como backup | Mantem a demonstracao visual para a apresentacao e reproduzivel por comando | Validated in Phase 2 |
 | Enquadrar cookies ativos como bearer tokens | Evita prometer que flags de cookie impedem replay manual de uma sessao ainda valida | Validated in Phase 4 |
+| Manter `docs/presentation/slides.html` como fonte editavel e exportar PDF local | Permite revisar o deck sem ferramenta hospedada e ainda entregar o PDF exigido | Validated in Phase 5 |
 
 ## Evolution
 
@@ -106,4 +108,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-09 after Phase 4 completion*
+*Last updated: 2026-06-09 after Phase 5 completion*
