@@ -13,7 +13,7 @@ O projeto sera construido como um MVP vertical para que cada fase aumente a demo
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Vulnerable Lab Foundation** - Aplicacao local com login, dashboard protegido e modo vulneravel.
+- [x] **Phase 1: Vulnerable Lab Foundation** - Aplicacao local com login, dashboard protegido e modo vulneravel. (completed 2026-06-09)
 - [ ] **Phase 2: Session Reuse Attack** - Roteiro e prova pratica de reutilizacao do cookie de sessao.
 - [ ] **Phase 3: Session Security Fixes** - Cookies e ciclo de vida de sessao corrigidos.
 - [ ] **Phase 4: Mitigation Verification** - Mesma tentativa de ataque falhando apos a correcao.
@@ -34,7 +34,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. O modo vulneravel usa cookie de sessao com configuracao insegura visivel no codigo.
   4. O dashboard mostra dados privados ficticios suficientes para provar acesso autenticado.
 
-**Plans:** 1/2 plans executed
+**Plans:** 2/2 plans complete
 Plans:
 **Wave 1**
 
@@ -42,7 +42,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 01-02: Implementar sessao vulneravel, dashboard protegido e evidencias do codigo vulneravel.
+- [x] 01-02: Implementar sessao vulneravel, dashboard protegido e evidencias do codigo vulneravel.
 
 ### Phase 2: Session Reuse Attack
 
@@ -131,7 +131,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Vulnerable Lab Foundation | 1/2 | In Progress|  |
+| 1. Vulnerable Lab Foundation | 2/2 | Complete   | 2026-06-09 |
 | 2. Session Reuse Attack | 0/2 | Not started | - |
 | 3. Session Security Fixes | 0/2 | Not started | - |
 | 4. Mitigation Verification | 0/2 | Not started | - |

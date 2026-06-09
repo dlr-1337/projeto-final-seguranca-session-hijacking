@@ -10,11 +10,11 @@ Requirements for the initial project delivery. Each requirement maps to one road
 ### Application
 
 - [x] **APP-01**: A equipe pode executar uma aplicacao local com login usando usuarios ficticios.
-- [ ] **APP-02**: Um usuario autenticado pode acessar um dashboard protegido que exibe dados privados ficticios.
+- [x] **APP-02**: Um usuario autenticado pode acessar um dashboard protegido que exibe dados privados ficticios.
 
 ### Vulnerability
 
-- [ ] **VULN-01**: A equipe pode iniciar a aplicacao em modo vulneravel com cookie de sessao inseguro.
+- [x] **VULN-01**: A equipe pode iniciar a aplicacao em modo vulneravel com cookie de sessao inseguro.
 - [ ] **VULN-02**: A sessao vulneravel permite reutilizacao do cookie em outro navegador, perfil, Postman, cURL, Burp Suite ou OWASP ZAP.
 
 ### Attack Demonstration
@@ -63,8 +63,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | APP-01 | Phase 1 | Complete |
-| APP-02 | Phase 1 | Pending |
-| VULN-01 | Phase 1 | Pending |
+| APP-02 | Phase 1 | Complete |
+| VULN-01 | Phase 1 | Complete |
 | VULN-02 | Phase 2 | Pending |
 | ATK-01 | Phase 2 | Pending |
 | ATK-02 | Phase 2 | Pending |
