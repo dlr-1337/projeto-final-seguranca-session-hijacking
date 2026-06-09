@@ -152,6 +152,20 @@ O teste `mitigation verification` cobre:
 
 O caminho seguro do cookie corrigido e testado com `secureCookie: true`, `trustProxy: true` e `X-Forwarded-Proto: https`, simulando transporte HTTPS para validar o atributo `Secure`.
 
+## Roteiro Rapido de Ensaio
+
+Use esta versao quando estiver treinando a fala da apresentacao:
+
+| Etapa | Comando/acao | Sinal esperado |
+|-------|--------------|----------------|
+| Antes vulneravel | `npm run dev` | Cliente B reutiliza `sid` e acessa `/dashboard` sem senha |
+| reset | `Ctrl+C`, limpar cookies de `127.0.0.1`/localhost, abrir Cliente B limpo | Nenhum cookie antigo fica misturado com o proximo modo |
+| Depois corrigido | `npm run dev:fixed` | Cookie antigo ou sessao invalida nao abre `/dashboard` |
+| Negacao observavel | `GET /dashboard` com cookie invalido, antigo ou apos logout | `302 Location: /login` |
+| Prova automatizada | `npm test` | Todos os testes passam, incluindo `mitigation verification` |
+
+Quando aparecer `302 Location: /login`, explique que o servidor nao encontrou uma sessao valida para aquele cookie. O redirecionamento do navegador para a tela de login e o sinal visual de que a reutilizacao indevida falhou.
+
 ## Checklist de Evidencias
 
 Capture apenas evidencias locais e ficticias:
