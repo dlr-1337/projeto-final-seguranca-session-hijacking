@@ -108,10 +108,13 @@ Plans:
   4. As limitacoes de HTTPS em localhost ficam documentadas para evitar confusao na banca.
 
 **Plans:** 2 plans
-
 Plans:
+**Wave 1**
 
 - [ ] 04-01: Criar checklist de verificacao da mitigacao e comandos de reset do laboratorio.
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
 - [ ] 04-02: Ensaiar fluxo completo e ajustar mensagens/erros para ficarem didaticos.
 
 ### Phase 5: Presentation Package
