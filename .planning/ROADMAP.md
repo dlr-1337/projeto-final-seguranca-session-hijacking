@@ -107,11 +107,11 @@ Plans:
   3. O ambiente pode ser resetado rapidamente para ensaio e apresentacao.
   4. As limitacoes de HTTPS em localhost ficam documentadas para evitar confusao na banca.
 
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 Plans:
 **Wave 1**
 
-- [ ] 04-01: Criar checklist de verificacao da mitigacao e comandos de reset do laboratorio.
+- [x] 04-01: Criar checklist de verificacao da mitigacao e comandos de reset do laboratorio.
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -147,5 +147,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Vulnerable Lab Foundation | 2/2 | Complete   | 2026-06-09 |
 | 2. Session Reuse Attack | 2/2 | Complete    | 2026-06-09 |
 | 3. Session Security Fixes | 2/2 | Complete    | 2026-06-09 |
-| 4. Mitigation Verification | 0/2 | Not started | - |
+| 4. Mitigation Verification | 1/2 | In Progress|  |
 | 5. Presentation Package | 0/2 | Not started | - |
