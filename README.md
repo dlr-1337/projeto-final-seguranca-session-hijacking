@@ -120,6 +120,12 @@ Quando `SESSION_COOKIE_SECURE=false` for usado para HTTP local, o app usa o cook
 
 O logout do modo corrigido usa `POST /logout`, destroi a sessao no servidor e limpa o cookie do cliente.
 
+## Phase 4: Verificacao da Mitigacao
+
+O roteiro de verificacao esta em [`docs/mitigation-verification.md`](docs/mitigation-verification.md).
+
+Ele repete a sequencia antes/depois: o replay do `sid` vulneravel acessa `/dashboard`, enquanto o modo corrigido nega cookies invalidos, antigos ou apos logout com `302 Location: /login`. Rode `npm test` para ver a prova automatizada dessa mitigacao.
+
 ## Comandos de Teste
 
 ```bash
