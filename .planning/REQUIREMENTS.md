@@ -9,7 +9,7 @@ Requirements for the initial project delivery. Each requirement maps to one road
 
 ### Application
 
-- [ ] **APP-01**: A equipe pode executar uma aplicacao local com login usando usuarios ficticios.
+- [x] **APP-01**: A equipe pode executar uma aplicacao local com login usando usuarios ficticios.
 - [ ] **APP-02**: Um usuario autenticado pode acessar um dashboard protegido que exibe dados privados ficticios.
 
 ### Vulnerability
@@ -62,7 +62,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| APP-01 | Phase 1 | Pending |
+| APP-01 | Phase 1 | Complete |
 | APP-02 | Phase 1 | Pending |
 | VULN-01 | Phase 1 | Pending |
 | VULN-02 | Phase 2 | Pending |
@@ -75,6 +75,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DOC-02 | Phase 5 | Pending |
 
 **Coverage:**
+
 - v1 requirements: 11 total
 - Mapped to phases: 11
 - Unmapped: 0

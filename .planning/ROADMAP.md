@@ -34,11 +34,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. O modo vulneravel usa cookie de sessao com configuracao insegura visivel no codigo.
   4. O dashboard mostra dados privados ficticios suficientes para provar acesso autenticado.
 
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 Plans:
 **Wave 1**
 
-- [ ] 01-01: Criar app Express, paginas basicas, usuarios ficticios e scripts de execucao.
+- [x] 01-01: Criar app Express, paginas basicas, usuarios ficticios e scripts de execucao.
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -131,7 +131,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Vulnerable Lab Foundation | 0/2 | Not started | - |
+| 1. Vulnerable Lab Foundation | 1/2 | In Progress|  |
 | 2. Session Reuse Attack | 0/2 | Not started | - |
 | 3. Session Security Fixes | 0/2 | Not started | - |
 | 4. Mitigation Verification | 0/2 | Not started | - |
