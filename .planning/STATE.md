@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: "Phase 03 shipped - PR #3"
-stopped_at: Completed 04-01-PLAN.md
-last_updated: "2026-06-09T16:58:06.689Z"
-last_activity: "2026-06-09 -- Phase 03 shipped as PR #3"
+status: "Phase 04 complete - mitigation verified"
+stopped_at: Completed 04-02-PLAN.md
+last_updated: "2026-06-09T14:01:54-03:00"
+last_activity: "2026-06-09 -- Phase 04 completed mitigation verification"
 progress:
   total_phases: 5
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 8
-  completed_plans: 7
-  percent: 60
+  completed_plans: 8
+  percent: 80
 ---
 
 # Project State
@@ -21,22 +21,22 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-09)
 
 **Core value:** A demonstracao deve provar, de forma reproduzivel e local, que uma sessao insegura pode ser sequestrada e que as correcoes implementadas impedem a reutilizacao indevida da sessao.
-**Current focus:** Phase 04 - mitigation-verification
+**Current focus:** Phase 05 - presentation-package
 
 ## Current Position
 
-Phase: 4
+Phase: 5
 Plan: Not started
-Status: Phase 03 shipped - PR #3
-Last activity: 2026-06-09 -- Phase 03 shipped as PR #3
+Status: Phase 04 complete - mitigation verified
+Last activity: 2026-06-09 -- Phase 04 completed mitigation verification
 
-Progress: [######----] 60%
+Progress: [########--] 80%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 6
+- Total plans completed: 8
 - Average duration: n/a
 - Total execution time: 0 hours
 
@@ -47,6 +47,7 @@ Progress: [######----] 60%
 | 01 | 2 | - | - |
 | 02 | 2 | - | - |
 | 03 | 2 | - | - |
+| 04 | 2 | - | - |
 
 **Recent Trend:**
 
@@ -61,6 +62,7 @@ Progress: [######----] 60%
 | Phase 03 P03-01 | 5 min | 3 tasks | 7 files |
 | Phase 03 P03-02 | 5 min | 3 tasks | 6 files |
 | Phase 04 P01 | 4 min | 3 tasks | 2 files |
+| Phase 04 P02 | 4 min | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -73,6 +75,7 @@ Recent decisions affecting current work:
 - Planning: Use vertical MVP phases so every phase moves the practical demo forward.
 - Stack research: Prefer Node.js, Express, and express-session for a compact academic demo.
 - Phase 2: Use browser DevTools as the primary attack path and cURL as the fallback proof.
+- Phase 4: Frame fixed-mode mitigation honestly: invalid, obsolete, expired, or logged-out cookies are denied; active session cookies remain bearer tokens until invalidation or expiration.
 
 ### Pending Todos
 
@@ -80,7 +83,7 @@ None yet.
 
 ### Blockers/Concerns
 
-- Fixed-mode `Secure` cookies need HTTPS or a clear localhost explanation during the demo.
+- Phase 5 still needs final slides, PDF export, and timed speaking notes.
 
 ## Deferred Items
 
@@ -92,6 +95,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-09T16:58:06.682Z
-Stopped at: Completed 04-01-PLAN.md
+Last session: 2026-06-09T14:01:54-03:00
+Stopped at: Completed 04-02-PLAN.md
 Resume file: None
