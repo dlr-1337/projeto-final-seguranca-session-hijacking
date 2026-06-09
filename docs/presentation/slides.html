@@ -351,7 +351,7 @@
           </div>
           <div class="panel">
             <h3>Ideia central</h3>
-            <p>Um identificador de sessao ativo funciona como credencial bearer. Quem apresenta o cookie valido recebe a sessao enquanto ela existir.</p>
+            <p>Um cookie bearer, ou identificador de sessao ativo, funciona como credencial. Quem apresenta o cookie valido recebe a sessao enquanto ela existir.</p>
           </div>
         </div>
         <p class="note">O objetivo da mitigacao e reduzir exposicao, limitar a janela de uso e invalidar a sessao no servidor quando necessario.</p>
@@ -379,6 +379,7 @@
           </div>
           <div class="panel">
             <h3>Por que e vulneravel?</h3>
+            <p>Vulnerabilidade demonstrada: reutilizacao de cookie de sessao sem nova autenticacao.</p>
             <ul>
               <li>`httpOnly: false` aumenta exposicao no cliente.</li>
               <li>`secure: false` permite envio sem HTTPS.</li>

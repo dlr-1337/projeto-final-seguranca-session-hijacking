@@ -61,7 +61,7 @@ Observacao esperada:
 
 Fala sugerida:
 
-> Um cookie de sessao ativo se comporta como credencial bearer. Quem apresenta o identificador valido consegue se passar pela sessao enquanto o servidor aceitar aquele ID.
+> Um cookie bearer, ou cookie de sessao ativo, se comporta como credencial. Quem apresenta o identificador valido consegue se passar pela sessao enquanto o servidor aceitar aquele ID.
 
 Mensagem obrigatoria:
 
