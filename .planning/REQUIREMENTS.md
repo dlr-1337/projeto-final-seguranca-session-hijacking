@@ -62,23 +62,23 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| APP-01 | TBD | Pending |
-| APP-02 | TBD | Pending |
-| VULN-01 | TBD | Pending |
-| VULN-02 | TBD | Pending |
-| ATK-01 | TBD | Pending |
-| ATK-02 | TBD | Pending |
-| FIX-01 | TBD | Pending |
-| FIX-02 | TBD | Pending |
-| FIX-03 | TBD | Pending |
-| DOC-01 | TBD | Pending |
-| DOC-02 | TBD | Pending |
+| APP-01 | Phase 1 | Pending |
+| APP-02 | Phase 1 | Pending |
+| VULN-01 | Phase 1 | Pending |
+| VULN-02 | Phase 2 | Pending |
+| ATK-01 | Phase 2 | Pending |
+| ATK-02 | Phase 2 | Pending |
+| FIX-01 | Phase 3 | Pending |
+| FIX-02 | Phase 3 | Pending |
+| FIX-03 | Phase 4 | Pending |
+| DOC-01 | Phase 5 | Pending |
+| DOC-02 | Phase 5 | Pending |
 
 **Coverage:**
 - v1 requirements: 11 total
-- Mapped to phases: 0
-- Unmapped: 11
+- Mapped to phases: 11
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-06-09*
-*Last updated: 2026-06-09 after initial definition*
+*Last updated: 2026-06-09 after roadmap creation*
