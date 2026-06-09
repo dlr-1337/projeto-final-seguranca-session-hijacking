@@ -15,12 +15,12 @@ Requirements for the initial project delivery. Each requirement maps to one road
 ### Vulnerability
 
 - [x] **VULN-01**: A equipe pode iniciar a aplicacao em modo vulneravel com cookie de sessao inseguro.
-- [ ] **VULN-02**: A sessao vulneravel permite reutilizacao do cookie em outro navegador, perfil, Postman, cURL, Burp Suite ou OWASP ZAP.
+- [x] **VULN-02**: A sessao vulneravel permite reutilizacao do cookie em outro navegador, perfil, Postman, cURL, Burp Suite ou OWASP ZAP.
 
 ### Attack Demonstration
 
-- [ ] **ATK-01**: A equipe possui um roteiro reproduzivel para capturar ou copiar, de forma controlada, o cookie de sessao no ambiente local.
-- [ ] **ATK-02**: A equipe pode demonstrar acesso ao dashboard protegido sem senha usando apenas o cookie reutilizado.
+- [x] **ATK-01**: A equipe possui um roteiro reproduzivel para capturar ou copiar, de forma controlada, o cookie de sessao no ambiente local.
+- [x] **ATK-02**: A equipe pode demonstrar acesso ao dashboard protegido sem senha usando apenas o cookie reutilizado.
 
 ### Mitigation
 
@@ -65,9 +65,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | APP-01 | Phase 1 | Complete |
 | APP-02 | Phase 1 | Complete |
 | VULN-01 | Phase 1 | Complete |
-| VULN-02 | Phase 2 | Pending |
-| ATK-01 | Phase 2 | Pending |
-| ATK-02 | Phase 2 | Pending |
+| VULN-02 | Phase 2 | Complete |
+| ATK-01 | Phase 2 | Complete |
+| ATK-02 | Phase 2 | Complete |
 | FIX-01 | Phase 3 | Pending |
 | FIX-02 | Phase 3 | Pending |
 | FIX-03 | Phase 4 | Pending |

@@ -16,10 +16,12 @@ A demonstracao deve provar, de forma reproduzivel e local, que uma sessao insegu
 
 - [x] Phase 1 validated a local Express application with fake login, session-backed authentication, and a protected dashboard.
 - [x] Phase 1 validated the vulnerable mode foundation: `sid` is intentionally configured with insecure cookie attributes for the local classroom demo.
+- [x] Phase 2 validated controlled Session Hijacking by copying the local `sid` cookie and replaying it from a second client.
+- [x] Phase 2 validated that the team has a reproducible browser/DevTools walkthrough with a cURL fallback.
+- [x] Phase 2 validated protected dashboard access without a password using only the reused session cookie.
 
 ### Active
 
-- [ ] Demonstrar Session Hijacking por captura ou copia controlada do cookie de sessao e reutilizacao em outro navegador, ferramenta ou perfil.
 - [ ] Implementar mitigacoes obrigatorias: cookies seguros, flags HttpOnly e SameSite, expiracao adequada e invalidacao de sessao no logout.
 - [ ] Demonstrar que o ataque falha depois da correcao.
 - [ ] Preparar slides em PDF com tema, integrantes, descricao da vulnerabilidade, arquitetura, codigo vulneravel, impactos, correcao, codigo corrigido, conclusao e referencias.
@@ -77,11 +79,12 @@ Entregaveis obrigatorios:
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Construir uma aplicacao local propria | Atende ao requisito de desenvolver ou configurar o proprio ambiente vulneravel | Pending |
+| Construir uma aplicacao local propria | Atende ao requisito de desenvolver ou configurar o proprio ambiente vulneravel | Validated through Phases 1 and 2 |
 | Separar modo vulneravel e modo corrigido | Facilita demonstrar o ataque antes e depois da mitigacao | Pending |
-| Usar dados ficticios de usuarios | Mantem a demonstracao etica e segura | Pending |
-| Focar em reutilizacao de cookie de sessao | E o nucleo pratico do tema Session Hijacking | Pending |
+| Usar dados ficticios de usuarios | Mantem a demonstracao etica e segura | Validated through Phases 1 and 2 |
+| Focar em reutilizacao de cookie de sessao | E o nucleo pratico do tema Session Hijacking | Validated in Phase 2 |
 | Usar Express, EJS e express-session no MVP | Mantem o laboratorio pequeno, testavel e facil de explicar em 25 minutos | Validated in Phase 1 |
+| Usar DevTools como caminho principal e cURL como backup | Mantem a demonstracao visual para a apresentacao e reproduzivel por comando | Validated in Phase 2 |
 
 ## Evolution
 
@@ -101,4 +104,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-09 after Phase 1 completion*
+*Last updated: 2026-06-09 after Phase 2 completion*

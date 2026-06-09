@@ -14,7 +14,7 @@ O projeto sera construido como um MVP vertical para que cada fase aumente a demo
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Vulnerable Lab Foundation** - Aplicacao local com login, dashboard protegido e modo vulneravel. (completed 2026-06-09)
-- [ ] **Phase 2: Session Reuse Attack** - Roteiro e prova pratica de reutilizacao do cookie de sessao.
+- [x] **Phase 2: Session Reuse Attack** - Roteiro e prova pratica de reutilizacao do cookie de sessao. (completed 2026-06-09)
 - [ ] **Phase 3: Session Security Fixes** - Cookies e ciclo de vida de sessao corrigidos.
 - [ ] **Phase 4: Mitigation Verification** - Mesma tentativa de ataque falhando apos a correcao.
 - [ ] **Phase 5: Presentation Package** - Slides, referencias e roteiro de 25 minutos prontos.
@@ -57,12 +57,19 @@ Plans:
   3. O roteiro explica claramente qual principio de seguranca foi violado.
   4. A demonstracao pode ser repetida sem depender de dados reais ou alvos externos.
 
-**Plans:** 2 plans
-
+**Plans:** 2/2 plans complete
 Plans:
+**Wave 1**
 
-- [ ] 02-01: Criar roteiro de ataque com navegador, DevTools e alternativa via Postman ou cURL.
-- [ ] 02-02: Registrar evidencias da exploracao para slides e ensaio da demonstracao.
+- [x] 02-01: Criar roteiro de ataque com navegador, DevTools e alternativa via Postman ou cURL.
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [x] 02-02: Registrar evidencias da exploracao para slides e ensaio da demonstracao.
+
+**Cross-cutting constraints:**
+
+- D-15: No fixed-mode session behavior is implemented in this plan.
 
 ### Phase 3: Session Security Fixes
 
@@ -132,7 +139,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Vulnerable Lab Foundation | 2/2 | Complete   | 2026-06-09 |
-| 2. Session Reuse Attack | 0/2 | Not started | - |
+| 2. Session Reuse Attack | 2/2 | Complete    | 2026-06-09 |
 | 3. Session Security Fixes | 0/2 | Not started | - |
 | 4. Mitigation Verification | 0/2 | Not started | - |
 | 5. Presentation Package | 0/2 | Not started | - |
