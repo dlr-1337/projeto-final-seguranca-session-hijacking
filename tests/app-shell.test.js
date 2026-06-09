@@ -12,26 +12,24 @@ describe("app shell", () => {
     expect(response.text).toContain("Entrar no laboratorio");
   });
 
-  it("renders the dashboard with fake private data", async () => {
+  it("redirects dashboard visitors without a session to login", async () => {
     const app = createApp();
 
     const response = await request(app).get("/dashboard");
 
-    expect(response.status).toBe(200);
-    expect(response.text).toContain("Painel protegido");
-    expect(response.text).toContain("Relatorio interno ficticio");
+    expect(response.status).toBe(302);
+    expect(response.headers.location).toBe("/login");
   });
 
-  it("accepts documented fake credentials and returns dashboard HTML", async () => {
+  it("rejects invalid fake credentials", async () => {
     const app = createApp();
 
     const response = await request(app)
       .post("/login")
       .type("form")
-      .send({ username: "alice", password: "alice123" });
+      .send({ username: "alice", password: "wrong" });
 
-    expect(response.status).toBe(200);
-    expect(response.text).toContain("Alice Demo");
-    expect(response.text).toContain("Relatorio interno ficticio");
+    expect(response.status).toBe(401);
+    expect(response.text).toContain("Credenciais invalidas");
   });
 });
