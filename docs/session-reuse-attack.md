@@ -118,10 +118,20 @@ Assim, a posse do cookie reutilizavel e suficiente para impersonar o usuario fic
 
 Capture apenas evidencias locais e ficticias:
 
-- Cliente A logado como `alice` em `/dashboard`.
-- Cookie `sid` visivel no DevTools do Cliente A.
-- Cliente B sendo redirecionado para `/login` antes de receber o cookie.
-- Cliente B acessando `/dashboard` sem senha depois de reutilizar `sid`.
+1. Cliente A logado localmente como `alice` em `/dashboard`.
+2. Cookie `sid` copiado pelo DevTools do Cliente A.
+3. Cliente B sendo redirecionado para `/login` antes de receber o cookie.
+4. Cliente B acessando `/dashboard` sem senha depois de reutilizar `sid`.
+
+Como evidencia automatizada, rode:
+
+```bash
+npm test
+```
+
+O teste `session reuse attack` prova que uma requisicao separada reutiliza o cookie `sid` copiado e recebe os dados fake da Alice.
+
+Screenshots e anotacoes devem conter apenas dados fake do dashboard local, como `Alice Demo`, `LAB-ALICE-001` e `Relatorio interno ficticio`. Nao capture cookies, dominios, contas ou informacoes de sistemas reais.
 
 Essas evidencias serao usadas depois nos slides. A fase atual nao cria o PDF final.
 
