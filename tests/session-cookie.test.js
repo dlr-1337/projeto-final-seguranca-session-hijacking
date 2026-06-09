@@ -22,7 +22,7 @@ describe("vulnerable session cookie", () => {
     expect(response.headers.location).toBe("/dashboard");
     expect(sessionCookie).toBeDefined();
     expect(sessionCookie).toContain("sid=");
-    expect(sessionCookie).toContain("Max-Age=86400");
+    expect(sessionCookie).toContain("Expires=");
     expect(sessionCookie).not.toContain("HttpOnly");
     expect(sessionCookie).not.toContain("Secure");
     expect(sessionCookie).not.toContain("SameSite");

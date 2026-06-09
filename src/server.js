@@ -1,7 +1,9 @@
 const path = require("node:path");
 const express = require("express");
 
-const { findUserByCredentials, users } = require("./data/users");
+const { findUserByCredentials } = require("./data/users");
+const { requireAuth } = require("./middleware/require-auth");
+const { createVulnerableSession } = require("./session/vulnerable-session");
 
 function createApp() {
   const app = express();
@@ -10,6 +12,7 @@ function createApp() {
   app.set("views", path.join(__dirname, "views"));
 
   app.use(express.urlencoded({ extended: false }));
+  app.use(createVulnerableSession());
   app.use("/public", express.static(path.join(__dirname, "public")));
 
   app.get("/", (req, res) => {
@@ -31,11 +34,12 @@ function createApp() {
       });
     }
 
-    return res.render("dashboard", { user, mode: "base" });
+    req.session.userId = user.id;
+    return res.redirect("/dashboard");
   });
 
-  app.get("/dashboard", (req, res) => {
-    res.render("dashboard", { user: users[0], mode: "base" });
+  app.get("/dashboard", requireAuth, (req, res) => {
+    res.render("dashboard", { user: res.locals.user, mode: "vulnerable" });
   });
 
   return app;
