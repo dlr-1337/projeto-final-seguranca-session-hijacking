@@ -3,16 +3,21 @@ const express = require("express");
 
 const { findUserByCredentials } = require("./data/users");
 const { requireAuth } = require("./middleware/require-auth");
-const { createVulnerableSession } = require("./session/vulnerable-session");
+const { resolveSessionMode } = require("./session/session-mode");
 
-function createApp() {
+function createApp(options = {}) {
   const app = express();
+  const sessionMode = resolveSessionMode(options);
 
   app.set("view engine", "ejs");
   app.set("views", path.join(__dirname, "views"));
 
+  if (sessionMode.trustProxy) {
+    app.set("trust proxy", 1);
+  }
+
   app.use(express.urlencoded({ extended: false }));
-  app.use(createVulnerableSession());
+  app.use(sessionMode.middleware);
   app.use("/public", express.static(path.join(__dirname, "public")));
 
   app.get("/", (req, res) => {
@@ -39,7 +44,7 @@ function createApp() {
   });
 
   app.get("/dashboard", requireAuth, (req, res) => {
-    res.render("dashboard", { user: res.locals.user, mode: "vulnerable" });
+    res.render("dashboard", { user: res.locals.user, mode: sessionMode.mode });
   });
 
   return app;

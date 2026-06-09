@@ -6,7 +6,9 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
+    "start:fixed": "set SESSION_MODE=fixed&& set SESSION_COOKIE_SECURE=false&& node src/server.js",
     "dev": "node --watch src/server.js",
+    "dev:fixed": "set SESSION_MODE=fixed&& set SESSION_COOKIE_SECURE=false&& node --watch src/server.js",
     "test": "vitest --run"
   },
   "dependencies": {
