@@ -139,7 +139,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Vulnerable Lab Foundation | 2/2 | Complete   | 2026-06-09 |
-| 2. Session Reuse Attack | 2/2 | Complete   | 2026-06-09 |
+| 2. Session Reuse Attack | 2/2 | Complete    | 2026-06-09 |
 | 3. Session Security Fixes | 0/2 | Not started | - |
 | 4. Mitigation Verification | 0/2 | Not started | - |
 | 5. Presentation Package | 0/2 | Not started | - |

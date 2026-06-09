@@ -2,10 +2,10 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: "Phase 01 shipped - PR #1"
-stopped_at: Completed 02-02-PLAN.md
-last_updated: "2026-06-09T13:12:03.285Z"
-last_activity: "2026-06-09 -- Phase 01 shipped in PR #1"
+status: "Phase 02 complete - ready for Phase 03"
+stopped_at: Phase 02 verified; Phase 03 ready
+last_updated: "2026-06-09T13:17:48.187Z"
+last_activity: "2026-06-09 -- Phase 02 completed; next up Phase 03 Session Security Fixes"
 progress:
   total_phases: 5
   completed_phases: 2
@@ -21,22 +21,22 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-09)
 
 **Core value:** A demonstracao deve provar, de forma reproduzivel e local, que uma sessao insegura pode ser sequestrada e que as correcoes implementadas impedem a reutilizacao indevida da sessao.
-**Current focus:** Phase 2 — session-reuse-attack
+**Current focus:** Phase 3 - session-security-fixes
 
 ## Current Position
 
-Phase: 2 — NOT STARTED
+Phase: 3 - NOT STARTED
 Plan: Not started
-Status: Phase 01 shipped - PR #1
-Last activity: 2026-06-09 -- Phase 01 shipped in PR #1
+Status: Phase 02 complete - ready for Phase 03
+Last activity: 2026-06-09 -- Phase 02 completed; next up Phase 03 Session Security Fixes
 
-Progress: [██░░░░░░░░] 20%
+Progress: [####------] 40%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 2
+- Total plans completed: 4
 - Average duration: n/a
 - Total execution time: 0 hours
 
@@ -45,6 +45,7 @@ Progress: [██░░░░░░░░] 20%
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01 | 2 | - | - |
+| 02 | 2 | - | - |
 
 **Recent Trend:**
 
@@ -67,6 +68,7 @@ Recent decisions affecting current work:
 - Initialization: Build a local, controlled Session Hijacking lab with vulnerable and fixed modes.
 - Planning: Use vertical MVP phases so every phase moves the practical demo forward.
 - Stack research: Prefer Node.js, Express, and express-session for a compact academic demo.
+- Phase 2: Use browser DevTools as the primary attack path and cURL as the fallback proof.
 
 ### Pending Todos
 
@@ -87,5 +89,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-06-09T13:12:03.271Z
-Stopped at: Completed 02-02-PLAN.md
+Stopped at: Phase 02 verified; Phase 03 ready
 Resume file: None
