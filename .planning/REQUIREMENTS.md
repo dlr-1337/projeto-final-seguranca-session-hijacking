@@ -30,8 +30,8 @@ Requirements for the initial project delivery. Each requirement maps to one road
 
 ### Documentation
 
-- [ ] **DOC-01**: Os slides em PDF cobrem tema e integrantes, descricao da vulnerabilidade, arquitetura, codigo vulneravel, impactos, correcao implementada, codigo corrigido, conclusao e referencias.
-- [ ] **DOC-02**: O roteiro de apresentacao distribui o conteudo no limite de 25 minutos: 7 minutos de conceito, 8 minutos de ataque, 8 minutos de correcao e 2 minutos de conclusao.
+- [x] **DOC-01**: Os slides em PDF cobrem tema e integrantes, descricao da vulnerabilidade, arquitetura, codigo vulneravel, impactos, correcao implementada, codigo corrigido, conclusao e referencias.
+- [x] **DOC-02**: O roteiro de apresentacao distribui o conteudo no limite de 25 minutos: 7 minutos de conceito, 8 minutos de ataque, 8 minutos de correcao e 2 minutos de conclusao.
 
 ## v2 Requirements
 
@@ -71,8 +71,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FIX-01 | Phase 3 | Complete |
 | FIX-02 | Phase 3 | Complete |
 | FIX-03 | Phase 4 | Complete |
-| DOC-01 | Phase 5 | Pending |
-| DOC-02 | Phase 5 | Pending |
+| DOC-01 | Phase 5 | Complete |
+| DOC-02 | Phase 5 | Complete |
 | ENH-01 | v2 | Deferred |
 | ENH-02 | v2 | Deferred |
 | ENH-03 | v2 | Deferred |
