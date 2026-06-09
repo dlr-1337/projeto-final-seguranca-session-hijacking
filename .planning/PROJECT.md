@@ -10,6 +10,22 @@ O projeto sera usado por uma equipe de 2 integrantes para desenvolver, configura
 
 A demonstracao deve provar, de forma reproduzivel e local, que uma sessao insegura pode ser sequestrada e que as correcoes implementadas impedem a reutilizacao indevida da sessao.
 
+## Current State
+
+**v1.0 MVP shipped on 2026-06-09.** The repository now contains a complete local Session Hijacking lab, vulnerable and fixed session modes, automated tests, before/after mitigation documentation, and the final presentation package.
+
+Primary deliverables:
+
+- Local Express app with fake users and protected dashboard.
+- Vulnerable `sid` session configuration and reproducible replay proof.
+- Fixed session configuration with `HttpOnly`, `Secure`, `SameSite`, short expiration, and server-side logout invalidation.
+- Verification docs and tests proving invalid, obsolete, expired, or logged-out cookies redirect to `/login`.
+- Presentation package in `docs/presentation/`, including editable HTML source, exported PDF, speaker script, evidence checklist, and references.
+
+## Next Milestone Goals
+
+- None defined. v2 ideas are deferred and should be reconsidered only if the project continues beyond the academic submission.
+
 ## Requirements
 
 ### Validated
@@ -89,6 +105,7 @@ Entregaveis obrigatorios:
 | Usar DevTools como caminho principal e cURL como backup | Mantem a demonstracao visual para a apresentacao e reproduzivel por comando | Validated in Phase 2 |
 | Enquadrar cookies ativos como bearer tokens | Evita prometer que flags de cookie impedem replay manual de uma sessao ainda valida | Validated in Phase 4 |
 | Manter `docs/presentation/slides.html` como fonte editavel e exportar PDF local | Permite revisar o deck sem ferramenta hospedada e ainda entregar o PDF exigido | Validated in Phase 5 |
+| Encerrar v1.0 como milestone completo apos merge da PR #5 | Preserva o historico em `.planning/milestones/` e deixa o projeto pronto para entrega ou novo milestone | Completed in v1.0 |
 
 ## Evolution
 
@@ -108,4 +125,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-09 after Phase 5 completion*
+*Last updated: 2026-06-09 after v1.0 milestone completion*
