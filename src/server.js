@@ -5,6 +5,25 @@ const { findUserByCredentials } = require("./data/users");
 const { requireAuth } = require("./middleware/require-auth");
 const { resolveSessionMode } = require("./session/session-mode");
 
+function completeLogin(req, res, next, sessionMode, user) {
+  const setUserAndRedirect = () => {
+    req.session.userId = user.id;
+    return res.redirect("/dashboard");
+  };
+
+  if (!sessionMode.isFixed || typeof req.session.regenerate !== "function") {
+    return setUserAndRedirect();
+  }
+
+  return req.session.regenerate((error) => {
+    if (error) {
+      return next(error);
+    }
+
+    return setUserAndRedirect();
+  });
+}
+
 function createApp(options = {}) {
   const app = express();
   const sessionMode = resolveSessionMode(options);
@@ -28,7 +47,7 @@ function createApp(options = {}) {
     res.render("login", { error: null, username: "" });
   });
 
-  app.post("/login", (req, res) => {
+  app.post("/login", (req, res, next) => {
     const { username = "", password = "" } = req.body;
     const user = findUserByCredentials(username, password);
 
@@ -39,12 +58,30 @@ function createApp(options = {}) {
       });
     }
 
-    req.session.userId = user.id;
-    return res.redirect("/dashboard");
+    return completeLogin(req, res, next, sessionMode, user);
   });
 
   app.get("/dashboard", requireAuth, (req, res) => {
     res.render("dashboard", { user: res.locals.user, mode: sessionMode.mode });
+  });
+
+  app.post("/logout", (req, res, next) => {
+    const redirectAfterLogout = () => {
+      res.clearCookie(sessionMode.cookieName, sessionMode.clearCookieOptions);
+      return res.redirect("/login");
+    };
+
+    if (!req.session) {
+      return redirectAfterLogout();
+    }
+
+    return req.session.destroy((error) => {
+      if (error) {
+        return next(error);
+      }
+
+      return redirectAfterLogout();
+    });
   });
 
   return app;

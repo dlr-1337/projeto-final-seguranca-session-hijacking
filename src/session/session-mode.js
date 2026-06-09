@@ -36,6 +36,12 @@ function resolveSessionMode(options = {}, env = process.env) {
       options.cookieName || (secureCookie ? SECURE_FIXED_COOKIE_NAME : LOCAL_FIXED_COOKIE_NAME);
 
     return {
+      clearCookieOptions: {
+        httpOnly: true,
+        path: "/",
+        sameSite: "strict",
+        secure: secureCookie
+      },
       cookieName,
       isFixed: true,
       mode,
@@ -49,6 +55,9 @@ function resolveSessionMode(options = {}, env = process.env) {
   }
 
   return {
+    clearCookieOptions: {
+      path: "/"
+    },
     cookieName: VULNERABLE_COOKIE_NAME,
     isFixed: false,
     mode,

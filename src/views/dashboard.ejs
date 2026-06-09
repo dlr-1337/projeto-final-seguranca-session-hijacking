@@ -14,7 +14,12 @@
             <p class="eyebrow">Painel protegido</p>
             <h1>Ola, <%= user.displayName %></h1>
           </div>
-          <span class="badge"><%= mode === "base" ? "Base local" : "Modo vulneravel" %></span>
+          <div>
+            <span class="badge"><%= mode === "fixed" ? "Modo corrigido" : "Modo vulneravel" %></span>
+            <form method="post" action="/logout">
+              <button type="submit">Sair</button>
+            </form>
+          </div>
         </div>
 
         <div class="grid">
