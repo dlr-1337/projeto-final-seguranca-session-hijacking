@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Painel protegido - Laboratorio</title>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <div class="dashboard-header">
+          <div>
+            <p class="eyebrow">Painel protegido</p>
+            <h1>Ola, <%= user.displayName %></h1>
+          </div>
+          <span class="badge"><%= mode === "base" ? "Base local" : "Modo vulneravel" %></span>
+        </div>
+
+        <div class="grid">
+          <article class="metric">
+            <span>Perfil</span>
+            <strong><%= user.role %></strong>
+          </article>
+          <article class="metric">
+            <span>Conta do lab</span>
+            <strong><%= user.privateData.labAccount %></strong>
+          </article>
+        </div>
+
+        <section class="private-note">
+          <h2><%= user.privateData.reportTitle %></h2>
+          <p><%= user.privateData.note %></p>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

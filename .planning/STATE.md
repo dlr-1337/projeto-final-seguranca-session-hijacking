@@ -1,12 +1,17 @@
 ---
-gsd_state_version: '1.0'
-status: planning
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: milestone
+status: "Phase 01 shipped - PR #1"
+stopped_at: Completed 01-02-PLAN.md
+last_updated: "2026-06-09T12:37:15.396Z"
+last_activity: "2026-06-09 -- Phase 01 shipped in PR #1"
 progress:
   total_phases: 5
-  completed_phases: 0
-  total_plans: 10
-  completed_plans: 0
-  percent: 0
+  completed_phases: 1
+  total_plans: 2
+  completed_plans: 2
+  percent: 20
 ---
 
 # Project State
@@ -16,21 +21,22 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-09)
 
 **Core value:** A demonstracao deve provar, de forma reproduzivel e local, que uma sessao insegura pode ser sequestrada e que as correcoes implementadas impedem a reutilizacao indevida da sessao.
-**Current focus:** Phase 1 - Vulnerable Lab Foundation
+**Current focus:** Phase 2 — session-reuse-attack
 
 ## Current Position
 
-Phase: 1 of 5 (Vulnerable Lab Foundation)
-Plan: 0 of 2 in current phase
-Status: Ready to plan
-Last activity: 2026-06-09 - Roadmap created and v1 requirements mapped.
+Phase: 2 — NOT STARTED
+Plan: Not started
+Status: Phase 01 shipped - PR #1
+Last activity: 2026-06-09 -- Phase 01 shipped in PR #1
 
-Progress: [----------] 0%
+Progress: [██░░░░░░░░] 20%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
+
+- Total plans completed: 2
 - Average duration: n/a
 - Total execution time: 0 hours
 
@@ -38,13 +44,16 @@ Progress: [----------] 0%
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 01 | 2 | - | - |
 
 **Recent Trend:**
+
 - Last 5 plans: none
 - Trend: n/a
 
 *Updated after each plan completion*
+| Phase 01 P01-01 | 5 min | 3 tasks | 12 files |
+| Phase 01 P01-02 | 4 min | 3 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -75,6 +84,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-09
-Stopped at: Project initialized, requirements mapped, ready to discuss or plan Phase 1.
+Last session: 2026-06-09T11:58:40.030Z
+Stopped at: Completed 01-02-PLAN.md
 Resume file: None
