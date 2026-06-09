@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Laboratorio de Session Hijacking</title>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
+  <body>
+    <main class="shell shell--narrow">
+      <section class="panel">
+        <p class="eyebrow">Laboratorio local</p>
+        <h1>Session Hijacking</h1>
+        <p class="lead">Entre com um usuario ficticio para acessar o dashboard protegido.</p>
+
+        <% if (error) { %>
+          <p class="error"><%= error %></p>
+        <% } %>
+
+        <form class="form" method="post" action="/login">
+          <label for="username">Usuario</label>
+          <input id="username" name="username" value="<%= username %>" autocomplete="username" required>
+
+          <label for="password">Senha</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+
+          <button type="submit">Entrar no laboratorio</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
