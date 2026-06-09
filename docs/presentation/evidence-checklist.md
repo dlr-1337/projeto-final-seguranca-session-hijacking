@@ -4,7 +4,7 @@ Use este checklist para coletar ou representar evidencias nos slides. Tudo deve 
 
 ## Regras de Redacao
 
-- Redact qualquer valor real de cookie antes de colocar em slide ou PDF.
+- Use `redact`/redigir em qualquer valor real de cookie antes de colocar em slide ou PDF.
 - Nao mostrar cookies completos, contas reais, dominios externos, tokens reais ou historico de navegador.
 - Usar apenas `127.0.0.1`/localhost e usuarios ficticios (`alice`, `bruno`).
 - Preferir evidencias com dados fake visiveis: `Alice Demo`, `LAB-ALICE-001`, `Relatorio interno ficticio`.
