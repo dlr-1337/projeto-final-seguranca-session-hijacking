@@ -57,11 +57,11 @@ Plans:
   3. O roteiro explica claramente qual principio de seguranca foi violado.
   4. A demonstracao pode ser repetida sem depender de dados reais ou alvos externos.
 
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 Plans:
 **Wave 1**
 
-- [ ] 02-01: Criar roteiro de ataque com navegador, DevTools e alternativa via Postman ou cURL.
+- [x] 02-01: Criar roteiro de ataque com navegador, DevTools e alternativa via Postman ou cURL.
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -139,7 +139,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Vulnerable Lab Foundation | 2/2 | Complete   | 2026-06-09 |
-| 2. Session Reuse Attack | 0/2 | Not started | - |
+| 2. Session Reuse Attack | 1/2 | In Progress|  |
 | 3. Session Security Fixes | 0/2 | Not started | - |
 | 4. Mitigation Verification | 0/2 | Not started | - |
 | 5. Presentation Package | 0/2 | Not started | - |
