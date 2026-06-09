@@ -17,6 +17,15 @@ Para executar sem modo watch:
 npm start
 ```
 
+O modo padrao continua vulneravel para preservar a demonstracao antes/depois.
+Para iniciar a variante corrigida em HTTP local para inspecao didatica:
+
+```bash
+npm run dev:fixed
+```
+
+Esse comando usa `SESSION_MODE=fixed` e `SESSION_COOKIE_SECURE=false` apenas para permitir login em `http://127.0.0.1:3000`. O atributo `Secure` exige HTTPS para protecao real; o codigo corrigido e os testes cobrem o caminho seguro com `secure: true`.
+
 ## Usuarios Ficticios
 
 | Usuario | Senha |
@@ -68,6 +77,44 @@ Pare a verificacao da Phase 1 aqui. Para a reutilizacao controlada do cookie, si
 O roteiro de ataque local esta em [`docs/session-reuse-attack.md`](docs/session-reuse-attack.md).
 
 Ele mostra como copiar o cookie vulneravel `sid` com DevTools e reutiliza-lo em outro cliente local para acessar `/dashboard` sem senha. O roteiro tambem inclui uma alternativa reproduzivel com `curl.exe`.
+
+## Phase 3: Modo Corrigido
+
+A configuracao corrigida esta em `src/session/fixed-session.js`. A selecao entre modos fica em `src/session/session-mode.js`.
+
+Para o modo vulneravel padrao:
+
+```bash
+npm run dev
+```
+
+Para o modo corrigido em HTTP local de inspecao:
+
+```bash
+npm run dev:fixed
+```
+
+Tambem e possivel selecionar o modo por variaveis de ambiente:
+
+```powershell
+$env:SESSION_MODE="fixed"
+$env:SESSION_COOKIE_SECURE="false"
+npm run dev
+```
+
+Cookie corrigido no caminho seguro:
+
+| Atributo | Valor corrigido |
+|----------|-----------------|
+| Nome | `__Host-session` |
+| `HttpOnly` | `true` |
+| `Secure` | `true` |
+| `SameSite` | `Strict` |
+| `maxAge` | `5 * 60 * 1000` |
+| `Path` | `/` |
+| `Domain` | nao definido |
+
+Quando `SESSION_COOKIE_SECURE=false` for usado para HTTP local, o app usa o cookie `sid` sem o prefixo `__Host-`. Esse fallback serve apenas para inspecao local em navegador comum; nao deve ser descrito como configuracao segura completa. A prova de que a reutilizacao do cookie falha depois das mitigacoes pertence a Phase 4.
 
 ## Comandos de Teste
 
