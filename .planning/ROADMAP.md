@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Vulnerable Lab Foundation** - Aplicacao local com login, dashboard protegido e modo vulneravel. (completed 2026-06-09)
 - [x] **Phase 2: Session Reuse Attack** - Roteiro e prova pratica de reutilizacao do cookie de sessao. (completed 2026-06-09)
-- [ ] **Phase 3: Session Security Fixes** - Cookies e ciclo de vida de sessao corrigidos.
+- [x] **Phase 3: Session Security Fixes** - Cookies e ciclo de vida de sessao corrigidos. (completed 2026-06-09)
 - [ ] **Phase 4: Mitigation Verification** - Mesma tentativa de ataque falhando apos a correcao.
 - [ ] **Phase 5: Presentation Package** - Slides, referencias e roteiro de 25 minutos prontos.
 
@@ -84,12 +84,15 @@ Plans:
   3. O codigo deixa clara a diferenca entre modo vulneravel e modo corrigido.
   4. A equipe consegue explicar a relacao entre mitigacao, OWASP e Secure SDLC.
 
-**Plans:** 2 plans
-
+**Plans:** 2/2 plans complete
 Plans:
+**Wave 1**
 
-- [ ] 03-01: Adicionar modo corrigido, configuracao de cookies e expiracao de sessao.
-- [ ] 03-02: Corrigir logout, limpar sessao no servidor e documentar antes/depois do codigo.
+- [x] 03-01: Adicionar modo corrigido, configuracao de cookies e expiracao de sessao.
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [x] 03-02: Corrigir logout, limpar sessao no servidor e documentar antes/depois do codigo.
 
 ### Phase 4: Mitigation Verification
 
@@ -140,6 +143,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|----------------|--------|-----------|
 | 1. Vulnerable Lab Foundation | 2/2 | Complete   | 2026-06-09 |
 | 2. Session Reuse Attack | 2/2 | Complete    | 2026-06-09 |
-| 3. Session Security Fixes | 0/2 | Not started | - |
+| 3. Session Security Fixes | 2/2 | Complete    | 2026-06-09 |
 | 4. Mitigation Verification | 0/2 | Not started | - |
 | 5. Presentation Package | 0/2 | Not started | - |

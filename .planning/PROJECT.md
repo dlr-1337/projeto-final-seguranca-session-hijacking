@@ -19,10 +19,11 @@ A demonstracao deve provar, de forma reproduzivel e local, que uma sessao insegu
 - [x] Phase 2 validated controlled Session Hijacking by copying the local `sid` cookie and replaying it from a second client.
 - [x] Phase 2 validated that the team has a reproducible browser/DevTools walkthrough with a cURL fallback.
 - [x] Phase 2 validated protected dashboard access without a password using only the reused session cookie.
+- [x] Phase 3 validated the corrected session mode with `HttpOnly`, `Secure`, `SameSite`, short expiration, and documented local HTTP fallback.
+- [x] Phase 3 validated logout invalidation: `POST /logout` destroys server-side session state and clears the active cookie.
 
 ### Active
 
-- [ ] Implementar mitigacoes obrigatorias: cookies seguros, flags HttpOnly e SameSite, expiracao adequada e invalidacao de sessao no logout.
 - [ ] Demonstrar que o ataque falha depois da correcao.
 - [ ] Preparar slides em PDF com tema, integrantes, descricao da vulnerabilidade, arquitetura, codigo vulneravel, impactos, correcao, codigo corrigido, conclusao e referencias.
 - [ ] Preparar roteiro de demonstracao com as etapas: mostrar vulnerabilidade, explorar falha, corrigir problema e demonstrar mitigacao funcionando.
@@ -80,7 +81,7 @@ Entregaveis obrigatorios:
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
 | Construir uma aplicacao local propria | Atende ao requisito de desenvolver ou configurar o proprio ambiente vulneravel | Validated through Phases 1 and 2 |
-| Separar modo vulneravel e modo corrigido | Facilita demonstrar o ataque antes e depois da mitigacao | Pending |
+| Separar modo vulneravel e modo corrigido | Facilita demonstrar o ataque antes e depois da mitigacao | Validated through Phase 3 |
 | Usar dados ficticios de usuarios | Mantem a demonstracao etica e segura | Validated through Phases 1 and 2 |
 | Focar em reutilizacao de cookie de sessao | E o nucleo pratico do tema Session Hijacking | Validated in Phase 2 |
 | Usar Express, EJS e express-session no MVP | Mantem o laboratorio pequeno, testavel e facil de explicar em 25 minutos | Validated in Phase 1 |
@@ -104,4 +105,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-09 after Phase 2 completion*
+*Last updated: 2026-06-09 after Phase 3 completion*
