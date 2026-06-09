@@ -35,7 +35,7 @@ Esta fase cria a base local do laboratorio:
 - Scripts locais de execucao e testes.
 - Sessao vulneravel com cookie inseguro visivel no codigo.
 
-A reutilizacao do cookie de sessao ainda nao e documentada aqui. O roteiro de ataque pertence a Phase 2.
+A reutilizacao controlada do cookie de sessao esta documentada no roteiro da Phase 2.
 
 ## Modo Vulneravel
 
@@ -61,7 +61,13 @@ Esses valores sao intencionais para a demonstracao local. Eles nao representam u
 4. Abra DevTools e veja os cookies do site local.
 5. Confirme que o cookie `sid` existe e que os atributos vulneraveis acima estao ausentes ou inseguros.
 
-Pare a verificacao aqui nesta fase. A reutilizacao controlada do cookie sera documentada apenas na Phase 2.
+Pare a verificacao da Phase 1 aqui. Para a reutilizacao controlada do cookie, siga o roteiro da Phase 2 abaixo.
+
+## Phase 2: Reutilizacao de Sessao
+
+O roteiro de ataque local esta em [`docs/session-reuse-attack.md`](docs/session-reuse-attack.md).
+
+Ele mostra como copiar o cookie vulneravel `sid` com DevTools e reutiliza-lo em outro cliente local para acessar `/dashboard` sem senha. O roteiro tambem inclui uma alternativa reproduzivel com `curl.exe`.
 
 ## Comandos de Teste
 
