@@ -307,7 +307,7 @@
           </div>
           <div class="panel">
             <h3>Integrantes</h3>
-            <p>Integrante 1<br>Integrante 2</p>
+            <p>Eduardo<br>Otávio</p>
           </div>
         </div>
         <div class="badge-row">
@@ -333,7 +333,7 @@
           </div>
           <div class="panel warning">
             <h3>Limite da demonstracao</h3>
-            <p>Somente `127.0.0.1`/localhost, usuarios fake (`alice`, `bruno`) e dados ficticios. Nada de contas reais, alvos externos, sniffing, XSS, CSRF ou tunel publico.</p>
+            <p>Somente 127.0.0.1/localhost, usuarios fake (alice, bruno) e dados ficticios. Nada de contas reais, alvos externos, sniffing, XSS, CSRF ou tunel publico.</p>
           </div>
         </div>
       </section>
@@ -351,7 +351,7 @@
           <div class="arrow">></div>
           <div class="panel">
             <h3>Express</h3>
-            <p>`/login`, `/dashboard`, `POST /logout` e `requireAuth`.</p>
+            <p>/login, /dashboard, POST /logout e requireAuth.</p>
           </div>
           <div class="arrow">></div>
           <div class="panel">
@@ -362,15 +362,15 @@
         <div class="grid-3">
           <div class="panel">
             <p class="kicker">Modo vulneravel</p>
-            <p>`sid` inseguro para provar o ataque.</p>
+            <p>sid inseguro para provar o ataque.</p>
           </div>
           <div class="panel">
             <p class="kicker">Modo corrigido</p>
-            <p>`__Host-session`, `HttpOnly`, `Secure`, `SameSite`, `maxAge`.</p>
+            <p>__Host-session, HttpOnly, Secure, SameSite, maxAge.</p>
           </div>
           <div class="panel">
             <p class="kicker">Prova</p>
-            <p>`npm test` e demo manual com DevTools/cURL.</p>
+            <p>npm test e demo manual com DevTools/cURL.</p>
           </div>
         </div>
       </section>
@@ -398,8 +398,8 @@
 
       <section class="slide" data-section="5 / 12">
         <header>
-          <p class="eyebrow">8 min - ataque</p>
-          <h2>Codigo vulneravel: cookie `sid` reutilizavel</h2>
+          <p class="eyebrow">Ataque</p>
+          <h2>Codigo vulneravel: cookie sid reutilizavel</h2>
         </header>
         <div class="grid-2">
           <div>
@@ -420,10 +420,10 @@
             <h3>Por que e vulneravel?</h3>
             <p>Vulnerabilidade demonstrada: reutilizacao de cookie de sessao sem nova autenticacao.</p>
             <ul>
-              <li>`httpOnly: false` aumenta exposicao no cliente.</li>
-              <li>`secure: false` permite envio sem HTTPS.</li>
-              <li>`sameSite: false` remove restricao cross-site.</li>
-              <li>`maxAge` longo amplia a janela de reuso.</li>
+              <li>httpOnly: false aumenta exposicao no cliente.</li>
+              <li>secure: false permite envio sem HTTPS.</li>
+              <li>sameSite: false remove restricao cross-site.</li>
+              <li>maxAge longo amplia a janela de reuso.</li>
             </ul>
           </div>
         </div>
@@ -431,17 +431,17 @@
 
       <section class="slide" data-section="6 / 12">
         <header>
-          <p class="eyebrow">8 min - ataque</p>
+          <p class="eyebrow">Ataque</p>
           <h2>Demonstracao do ataque local</h2>
         </header>
         <div class="grid-2">
           <div>
             <ol>
-              <li>`npm run dev`.</li>
-              <li>Cliente A: login como `alice`.</li>
-              <li>Cliente B: `/dashboard` redireciona para `/login`.</li>
-              <li>Copiar `sid` do Cliente A e inserir no Cliente B.</li>
-              <li>Cliente B acessa `/dashboard` sem senha.</li>
+              <li>npm run dev.</li>
+              <li>Cliente A: login como alice.</li>
+              <li>Cliente B: /dashboard redireciona para /login.</li>
+              <li>Copiar sid do Cliente A e inserir no Cliente B.</li>
+              <li>Cliente B acessa /dashboard sem senha.</li>
             </ol>
           </div>
           <div>
@@ -455,7 +455,7 @@
 
       <section class="slide" data-section="7 / 12">
         <header>
-          <p class="eyebrow">8 min - ataque</p>
+          <p class="eyebrow">Ataque</p>
           <h2>Impacto e principio violado</h2>
         </header>
         <div class="grid-2">
@@ -472,12 +472,12 @@
             <p>Controle insuficiente sobre identificador de sessao: o servidor confia no cookie apresentado e nao distingue o cliente legitimo do replay.</p>
           </div>
         </div>
-        <p class="note">Evidencia automatizada: `tests/session-reuse-attack.test.js` prova que uma requisicao separada reutiliza `sid` e recebe dados fake da Alice.</p>
+        <p class="note">Evidencia automatizada: tests/session-reuse-attack.test.js prova que uma requisicao separada reutiliza sid e recebe dados fake da Alice.</p>
       </section>
 
       <section class="slide" data-section="8 / 12">
         <header>
-          <p class="eyebrow">8 min - correcao</p>
+          <p class="eyebrow">Correcao</p>
           <h2>Codigo corrigido: atributos seguros</h2>
         </header>
         <div class="grid-2">
@@ -499,11 +499,11 @@
           <div class="panel">
             <h3>O que muda?</h3>
             <ul>
-              <li>`HttpOnly`: reduz exposicao a JavaScript.</li>
-              <li>`Secure`: envio apenas via HTTPS no caminho seguro.</li>
-              <li>`SameSite=Strict`: restringe envio cross-site.</li>
-              <li>`maxAge` curto: diminui janela de abuso.</li>
-              <li>`__Host-session`: cookie mais restrito, com `Path=/` e sem `Domain`.</li>
+              <li>HttpOnly: reduz exposicao a JavaScript.</li>
+              <li>Secure: envio apenas via HTTPS no caminho seguro.</li>
+              <li>SameSite=Strict: restringe envio cross-site.</li>
+              <li>maxAge curto: diminui janela de abuso.</li>
+              <li>__Host-session: cookie mais restrito, com Path=/ e sem Domain.</li>
             </ul>
           </div>
         </div>
@@ -511,39 +511,39 @@
 
       <section class="slide" data-section="9 / 12">
         <header>
-          <p class="eyebrow">8 min - correcao</p>
+          <p class="eyebrow">Correcao</p>
           <h2>Lifecycle: login, expiracao e logout</h2>
         </header>
         <div class="grid-3">
           <div class="panel">
             <h3>Login</h3>
-            <p>No modo corrigido, a sessao e regenerada antes de gravar `userId`.</p>
+            <p>No modo corrigido, a sessao e regenerada antes de gravar userId.</p>
           </div>
           <div class="panel">
             <h3>Expiracao</h3>
-            <p>`maxAge` de 5 minutos limita o tempo util do cookie copiado.</p>
+            <p>maxAge curto limita o tempo util do cookie copiado.</p>
           </div>
           <div class="panel">
             <h3>Logout</h3>
-            <p>`POST /logout` executa `req.session.destroy`, limpa o cookie e redireciona para `/login`.</p>
+            <p>POST /logout executa req.session.destroy, limpa o cookie e redireciona para /login.</p>
           </div>
         </div>
-        <p class="note">O HTTP local com `npm run dev:fixed` e fallback de inspecao. Protecao real do atributo `Secure` exige HTTPS; os testes validam o caminho seguro com headers de proxy HTTPS.</p>
+        <p class="note">O HTTP local com npm run dev:fixed e fallback de inspecao. Protecao real do atributo Secure exige HTTPS; os testes validam o caminho seguro com headers de proxy HTTPS.</p>
       </section>
 
       <section class="slide" data-section="10 / 12">
         <header>
-          <p class="eyebrow">8 min - correcao</p>
+          <p class="eyebrow">Correcao</p>
           <h2>Verificacao: antes funciona, depois falha</h2>
         </header>
         <div class="grid-2">
           <div class="panel">
             <h3>Antes</h3>
-            <p>Replay do `sid` vulneravel chega ao `/dashboard` e mostra `Alice Demo` / `LAB-ALICE-001`.</p>
+            <p>Replay do sid vulneravel chega ao /dashboard e mostra Alice Demo / LAB-ALICE-001.</p>
           </div>
           <div class="panel">
             <h3>Depois</h3>
-            <p>Cookie antigo, invalido, expirado ou apos logout retorna `302 Location: /login`.</p>
+            <p>Cookie antigo, invalido, expirado ou apos logout retorna 302 Location: /login.</p>
           </div>
         </div>
         <pre>npm test
@@ -556,28 +556,22 @@ mitigation verification:
 
       <section class="slide" data-section="11 / 12">
         <header>
-          <p class="eyebrow">2 min - fechamento</p>
+          <p class="eyebrow">Fechamento</p>
           <h2>OWASP e Secure SDLC</h2>
         </header>
-        <div class="grid-2">
-          <div>
-            <ul>
-              <li>OWASP Top 10 2025: A07 Authentication Failures.</li>
-              <li>OWASP 2021: A07 Identification and Authentication Failures.</li>
-              <li>OWASP Session Management: proteger o ID de sessao, expirar e invalidar.</li>
-              <li>Secure SDLC: identificar, explorar de forma controlada, corrigir e verificar.</li>
-            </ul>
-          </div>
-          <div class="panel">
-            <h3>Mensagem honesta</h3>
-            <p>As mitigacoes reduzem a chance e a janela de sequestro. Um cookie ativo ainda e sensivel ate expirar ou ser invalidado no servidor.</p>
-          </div>
+        <div>
+          <ul>
+            <li>OWASP Top 10 2025: A07 Authentication Failures.</li>
+            <li>OWASP 2021: A07 Identification and Authentication Failures.</li>
+            <li>OWASP Session Management: proteger o ID de sessao, expirar e invalidar.</li>
+            <li>Secure SDLC: identificar, explorar de forma controlada, corrigir e verificar.</li>
+          </ul>
         </div>
       </section>
 
       <section class="slide" data-section="12 / 12">
         <header>
-          <p class="eyebrow">2 min - fechamento</p>
+          <p class="eyebrow">Fechamento</p>
           <h2>Conclusao e referencias</h2>
         </header>
         <div class="grid-2">
@@ -591,7 +585,7 @@ mitigation verification:
               <li>OWASP Top 10 A07 Authentication Failures.</li>
               <li>OWASP Session Management Cheat Sheet.</li>
               <li>MDN Set-Cookie.</li>
-              <li>Express `express-session`.</li>
+              <li>Express express-session.</li>
               <li>Codigo e testes deste laboratorio.</li>
             </ul>
           </div>
