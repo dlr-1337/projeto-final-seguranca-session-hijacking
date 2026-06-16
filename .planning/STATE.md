@@ -90,7 +90,7 @@ None yet.
 
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
-| 260616-13p | Remover o texto 7 min - conceito dos slides e adicionar controle por setas para avancar e voltar entre os slides | 2026-06-16 | 887bb26 | [260616-13p-remover-o-texto-7-min-conceito-dos-slide](./quick/260616-13p-remover-o-texto-7-min-conceito-dos-slide/) |
+| 260616-13p | Remover o texto 7 min - conceito dos slides e adicionar controle por setas para avancar e voltar entre os slides | 2026-06-16 | 887bb26, 4e7af59 | [260616-13p-remover-o-texto-7-min-conceito-dos-slide](./quick/260616-13p-remover-o-texto-7-min-conceito-dos-slide/) |
 
 ## Deferred Items
 
