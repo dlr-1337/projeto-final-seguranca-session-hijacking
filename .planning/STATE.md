@@ -4,8 +4,8 @@ milestone: v1.0
 milestone_name: milestone
 status: Awaiting next milestone
 stopped_at: Completed 05-02-PLAN.md
-last_updated: "2026-06-16T04:16:46.469Z"
-last_activity: 2026-06-16 - Completed quick task 260616-1rz: Limpar tempos nomes backticks e mensagem honesta dos slides
+last_updated: "2026-06-17T03:00:00.000Z"
+last_activity: 2026-06-17 - Completed quick task 260616-x4d: Corrigir pt-BR no pacote de apresentacao e regenerar o PDF
 progress:
   total_phases: 5
   completed_phases: 5
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-06-09)
 Phase: Milestone v1.0 complete
 Plan: —
 Status: Awaiting next milestone
-Last activity: 2026-06-16 - Completed quick task 260616-1rz: Limpar tempos nomes backticks e mensagem honesta dos slides
+Last activity: 2026-06-17 - Completed quick task 260616-x4d: Corrigir pt-BR no pacote de apresentacao e regenerar o PDF
 
 ## Performance Metrics
 
@@ -92,6 +92,7 @@ None yet.
 |---|-------------|------|--------|-----------|
 | 260616-13p | Remover o texto 7 min - conceito dos slides e adicionar controle por setas para avancar e voltar entre os slides | 2026-06-16 | 887bb26, 4e7af59 | [260616-13p-remover-o-texto-7-min-conceito-dos-slide](./quick/260616-13p-remover-o-texto-7-min-conceito-dos-slide/) |
 | 260616-1rz | Limpar tempos nomes backticks e mensagem honesta dos slides | 2026-06-16 | 4d82b08 | [260616-1rz-limpar-tempos-nomes-backticks-e-mensagem](./quick/260616-1rz-limpar-tempos-nomes-backticks-e-mensagem/) |
+| 260616-x4d | Corrigir pt-BR no pacote de apresentacao e regenerar o PDF | 2026-06-17 | bdfc96e | [260616-x4d-corrigir-pt-br-no-pacote-de-apresentacao](./quick/260616-x4d-corrigir-pt-br-no-pacote-de-apresentacao/) |
 
 ## Deferred Items
 
