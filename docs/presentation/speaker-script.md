@@ -1,80 +1,80 @@
-# Roteiro de Apresentacao - Session Hijacking
+# Roteiro de Apresentação - Session Hijacking
 
-**Duracao total:** 25 min
-**Formato:** dois integrantes, demo local controlada, dados ficticios.
+**Duração total:** 25 min
+**Formato:** dois integrantes, demo local controlada, dados fictícios.
 
-## Divisao Rapida
+## Divisão Rápida
 
-| Bloco | Tempo | Responsavel | Slides | Objetivo |
+| Bloco | Tempo | Responsável | Slides | Objetivo |
 |-------|-------|-------------|--------|----------|
 | Conceito | 7 min | Integrante 1 | 1-4 | Explicar objetivo, arquitetura e como o cookie vira credencial bearer. |
 | Ataque | 8 min | Integrante 1 com apoio do Integrante 2 | 5-7 | Mostrar o replay do `sid` em outro cliente local. |
-| Correcao e verificacao | 8 min | Integrante 2 com apoio do Integrante 1 | 8-10 | Mostrar codigo corrigido, logout/expiracao e `302 Location: /login`. |
-| Conclusao | 2 min | Integrante 2 | 11-12 | Amarrar OWASP, Secure SDLC, conclusao e referencias. |
+| Correção e verificação | 8 min | Integrante 2 com apoio do Integrante 1 | 8-10 | Mostrar código corrigido, logout/expiração e `302 Location: /login`. |
+| Conclusão | 2 min | Integrante 2 | 11-12 | Amarrar OWASP, Secure SDLC, conclusão e referências. |
 
-## Antes de Comecar
+## Antes de Começar
 
 - Abrir o projeto no terminal.
-- Confirmar que as dependencias estao instaladas com `npm install`.
+- Confirmar que as dependências estão instaladas com `npm install`.
 - Ter dois clientes locais: Cliente A e Cliente B.
 - Deixar os arquivos `src/session/vulnerable-session.js` e `src/session/fixed-session.js` prontos para mostrar.
-- Nunca mostrar valores reais de cookie; se aparecer em screenshot, redact.
+- Nunca mostrar valores reais de cookie; se aparecer em captura de tela, oculte.
 
 ## Bloco 1 - Conceito (7 min)
 
-### Slide 1 - Titulo (1 min) - Integrante 1
+### Slide 1 - Título (1 min) - Integrante 1
 
 Fala sugerida:
 
-> Nosso tema e Session Hijacking. A ideia e mostrar, de forma local e autorizada, que um cookie de sessao inseguro pode ser reutilizado por outro cliente e que as correcoes bloqueiam o reuso quando a sessao fica invalida, antiga, expirada ou encerrada.
+> Nosso tema é Session Hijacking. A ideia é mostrar, de forma local e autorizada, que um cookie de sessão inseguro pode ser reutilizado por outro cliente e que as correções bloqueiam o reuso quando a sessão fica inválida, antiga, expirada ou encerrada.
 
-Observacao esperada:
+Observação esperada:
 
-- A banca entende que o ambiente e local, didatico e com dados ficticios.
+- A banca entende que o ambiente é local, didático e com dados fictícios.
 
-### Slide 2 - Objetivo e escopo etico (1 min) - Integrante 1
+### Slide 2 - Objetivo e escopo ético (1 min) - Integrante 1
 
 Fala sugerida:
 
-> Todo o teste roda em `127.0.0.1` ou localhost. Nao usamos contas reais, dados reais, sites externos, sniffing, XSS ou CSRF. O foco e um unico ponto: reutilizacao do cookie de sessao.
+> Todo o teste roda em `127.0.0.1` ou localhost. Não usamos contas reais, dados reais, sites externos, sniffing, XSS ou CSRF. O foco é um único ponto: reutilização do cookie de sessão.
 
-Observacao esperada:
+Observação esperada:
 
-- O escopo etico fica claro antes de qualquer passo ofensivo.
+- O escopo ético fica claro antes de qualquer passo ofensivo.
 
 ### Slide 3 - Arquitetura (2 min) - Integrante 1
 
 Fala sugerida:
 
-> O navegador envia um cookie para o Express. O `express-session` guarda os dados no servidor e deixa no navegador apenas o identificador da sessao. O dashboard e protegido por `requireAuth`.
+> O navegador envia um cookie para o Express. O `express-session` guarda os dados no servidor e deixa no navegador apenas o identificador da sessão. O dashboard é protegido por `requireAuth`.
 
 Mostrar rapidamente:
 
-- `README.md` com usuarios ficticios.
+- `README.md` com usuários fictícios.
 - Rotas principais: `/login`, `/dashboard`, `POST /logout`.
 
-Observacao esperada:
+Observação esperada:
 
-- A banca entende que copiar o identificador e suficiente para tentar "colar" outro cliente na mesma sessao.
+- A banca entende que copiar o identificador é suficiente para tentar "colar" outro cliente na mesma sessão.
 
 ### Slide 4 - Como acontece o hijacking (3 min) - Integrante 1
 
 Fala sugerida:
 
-> Um cookie bearer, ou cookie de sessao ativo, se comporta como credencial. Quem apresenta o identificador valido consegue se passar pela sessao enquanto o servidor aceitar aquele ID.
+> Um cookie bearer, ou cookie de sessão ativo, se comporta como credencial. Quem apresenta o identificador válido consegue se passar pela sessão enquanto o servidor aceitar aquele ID.
 
-Mensagem obrigatoria:
+Mensagem obrigatória:
 
-- As mitigacoes reduzem exposicao, transporte inseguro e tempo de uso.
-- Um cookie ativo ainda e sensivel ate expirar ou ser invalidado no servidor.
+- As mitigações reduzem exposição, transporte inseguro e tempo de uso.
+- Um cookie ativo ainda é sensível até expirar ou ser invalidado no servidor.
 
-Observacao esperada:
+Observação esperada:
 
-- A explicacao prepara o ataque sem prometer uma defesa absoluta.
+- A explicação prepara o ataque sem prometer uma defesa absoluta.
 
 ## Bloco 2 - Ataque (8 min)
 
-### Slide 5 - Codigo vulneravel (2 min) - Integrante 1
+### Slide 5 - Código vulnerável (2 min) - Integrante 1
 
 Mostrar:
 
@@ -82,17 +82,17 @@ Mostrar:
 
 Fala sugerida:
 
-> O modo vulneravel usa `sid`, `httpOnly: false`, `secure: false`, `sameSite: false` e um `maxAge` longo. Isso foi intencional para a demonstracao.
+> O modo vulnerável usa `sid`, `httpOnly: false`, `secure: false`, `sameSite: false` e um `maxAge` longo. Isso foi intencional para a demonstração.
 
-Observacao esperada:
+Observação esperada:
 
-- A banca ve o codigo vulneravel, nao apenas uma explicacao teorica.
+- A banca vê o código vulnerável, não apenas uma explicação teórica.
 
 ### Slide 6 - Demo do ataque (4 min) - Integrante 1 opera, Integrante 2 acompanha
 
 Passos:
 
-1. Iniciar modo vulneravel:
+1. Iniciar modo vulnerável:
 
 ```bash
 npm run dev
@@ -107,13 +107,13 @@ http://127.0.0.1:3000/login
 3. Cliente A faz login:
 
 ```text
-Usuario: alice
+Usuário: alice
 Senha: alice123
 ```
 
 Resultado esperado:
 
-- Cliente A entra em `/dashboard` e ve dados ficticios da Alice.
+- Cliente A entra em `/dashboard` e vê dados fictícios da Alice.
 
 4. Cliente B tenta acessar antes do cookie:
 
@@ -127,11 +127,11 @@ Resultado esperado:
 
 5. Cliente A copia o cookie `sid` pelo DevTools.
 
-6. Cliente B recebe o cookie `sid` com valor redigido/nao exibido no slide.
+6. Cliente B recebe o cookie `sid` com valor ocultado/não exibido no slide.
 
 Resultado esperado:
 
-- Cliente B recarrega `/dashboard` e ve dados ficticios da Alice sem digitar senha.
+- Cliente B recarrega `/dashboard` e vê dados fictícios da Alice sem digitar senha.
 
 Fallback se editar cookie no navegador estiver lento:
 
@@ -141,25 +141,25 @@ curl.exe -i http://127.0.0.1:3000/dashboard -H "Cookie: sid=<copied-sid-value>"
 
 Resultado esperado:
 
-- Resposta contem `Painel protegido`, `Alice Demo` ou `LAB-ALICE-001`.
+- Resposta contém `Painel protegido`, `Alice Demo` ou `LAB-ALICE-001`.
 
 ### Slide 7 - Impacto (2 min) - Integrante 1
 
 Fala sugerida:
 
-> O impacto e impersonacao: o segundo cliente acessa o dashboard protegido sem senha. O principio violado e o controle insuficiente do identificador de sessao.
+> O impacto é impersonação: o segundo cliente acessa o dashboard protegido sem senha. O princípio violado é o controle insuficiente do identificador de sessão.
 
 Mostrar como prova automatizada:
 
 - `tests/session-reuse-attack.test.js`
 
-Observacao esperada:
+Observação esperada:
 
-- A banca entende que o replay do cookie e a prova de acesso indevido.
+- A banca entende que o replay do cookie é a prova de acesso indevido.
 
-## Reset Entre Ataque e Correcao
+## Reset Entre Ataque e Correção
 
-Responsavel: Integrante 2 opera, Integrante 1 narra rapidamente.
+Responsável: Integrante 2 opera, Integrante 1 narra rapidamente.
 
 Passos:
 
@@ -172,9 +172,9 @@ Resultado esperado:
 
 - Nenhum cookie antigo interfere no modo corrigido.
 
-## Bloco 3 - Correcao e Verificacao (8 min)
+## Bloco 3 - Correção e Verificação (8 min)
 
-### Slide 8 - Codigo corrigido (2 min) - Integrante 2
+### Slide 8 - Código corrigido (2 min) - Integrante 2
 
 Mostrar:
 
@@ -187,9 +187,9 @@ Fala sugerida:
 Ponto importante:
 
 - `Secure` protege de verdade com HTTPS.
-- `npm run dev:fixed` usa fallback HTTP local para inspecao em sala.
+- `npm run dev:fixed` usa fallback HTTP local para inspeção em sala.
 
-### Slide 9 - Lifecycle da sessao (2 min) - Integrante 2
+### Slide 9 - Lifecycle da sessão (2 min) - Integrante 2
 
 Mostrar:
 
@@ -197,13 +197,13 @@ Mostrar:
 
 Fala sugerida:
 
-> Alem dos atributos, o servidor invalida a sessao no logout com `req.session.destroy` e limpa o cookie. Isso importa porque apagar cookie no cliente sem destruir a sessao no servidor nao basta.
+> Além dos atributos, o servidor invalida a sessão no logout com `req.session.destroy` e limpa o cookie. Isso importa porque apagar cookie no cliente sem destruir a sessão no servidor não basta.
 
 Resultado esperado:
 
-- A banca entende a diferenca entre esconder o cookie e invalidar a sessao.
+- A banca entende a diferença entre esconder o cookie e invalidar a sessão.
 
-### Slide 10 - Verificacao da mitigacao (4 min) - Integrante 2 opera
+### Slide 10 - Verificação da mitigação (4 min) - Integrante 2 opera
 
 Passos:
 
@@ -213,7 +213,7 @@ Passos:
 npm run dev:fixed
 ```
 
-2. Tentar acessar `/dashboard` com cookie antigo, invalido ou ausente.
+2. Tentar acessar `/dashboard` com cookie antigo, inválido ou ausente.
 
 Resultado esperado:
 
@@ -237,41 +237,41 @@ Resultado esperado:
 
 - Testes passam, incluindo `mitigation verification`, `fixed session cookie` e `fixed session logout`.
 
-Mensagem obrigatoria:
+Mensagem obrigatória:
 
-> A mitigacao nao promete que um cookie ativo copiado magicamente deixa de ser bearer. Ela reduz exposicao e janela de uso, e a verificacao mostra que cookies antigos, invalidos, expirados ou apos logout nao abrem mais o dashboard.
+> A mitigação não promete que um cookie ativo copiado magicamente deixa de ser bearer. Ela reduz exposição e janela de uso, e a verificação mostra que cookies antigos, inválidos, expirados ou após logout não abrem mais o dashboard.
 
-## Bloco 4 - Conclusao (2 min)
+## Bloco 4 - Conclusão (2 min)
 
 ### Slide 11 - OWASP e Secure SDLC (1 min) - Integrante 2
 
 Fala sugerida:
 
-> O problema se relaciona ao OWASP Top 10 2025 A07 Authentication Failures. Tambem podemos citar o nome usado em 2021: Identification and Authentication Failures. A correcao segue a linha do OWASP Session Management Cheat Sheet: proteger o identificador, reduzir exposicao, limitar tempo de vida e invalidar no servidor.
+> O problema se relaciona ao OWASP Top 10 2025 A07 Authentication Failures. Também podemos citar o nome usado em 2021: Identification and Authentication Failures. A correção segue a linha do OWASP Session Management Cheat Sheet: proteger o identificador, reduzir exposição, limitar tempo de vida e invalidar no servidor.
 
-### Slide 12 - Fechamento e referencias (1 min) - Integrante 2
+### Slide 12 - Fechamento e referências (1 min) - Integrante 2
 
 Fala sugerida:
 
-> Concluindo: no antes, o `sid` vulneravel permite acesso sem senha em outro cliente. No depois, os controles de cookie, expiracao e logout fazem a reutilizacao indevida falhar quando a sessao deixa de ser valida. O projeto mostrou Secure SDLC em miniatura: identificar, explorar localmente, corrigir e verificar.
+> Concluindo: no antes, o `sid` vulnerável permite acesso sem senha em outro cliente. No depois, os controles de cookie, expiração e logout fazem a reutilização indevida falhar quando a sessão deixa de ser válida. O projeto mostrou Secure SDLC em miniatura: identificar, explorar localmente, corrigir e verificar.
 
-Referencias a mencionar:
+Referências a mencionar:
 
 - OWASP Top 10 A07 Authentication Failures.
 - OWASP Session Management Cheat Sheet.
 - MDN Set-Cookie.
 - Express `express-session`.
-- Codigo e testes deste laboratorio.
+- Código e testes deste laboratório.
 
 ## Checklist de Ensaio
 
 - [ ] O tempo total fica em 25 min.
 - [ ] O bloco de conceito fica em 7 min.
 - [ ] O bloco de ataque fica em 8 min.
-- [ ] O bloco de correcao/verificacao fica em 8 min.
-- [ ] A conclusao fica em 2 min.
+- [ ] O bloco de correção/verificação fica em 8 min.
+- [ ] A conclusão fica em 2 min.
 - [ ] Integrante 1 fala e participa da demo.
 - [ ] Integrante 2 fala e participa da demo.
 - [ ] O valor real de cookie nunca aparece no slide final.
 - [ ] `npm run dev`, `npm run dev:fixed` e `npm test` foram ensaiados.
-- [ ] O fallback com `curl.exe` esta pronto.
+- [ ] O fallback com `curl.exe` está pronto.
